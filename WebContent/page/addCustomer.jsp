@@ -133,8 +133,14 @@ function closeDialog() {
 			</tr>
 			<tr>
 			  <td>寄送地址：</td>
-		      <td><select></select><select></select>
-		      <input type="text"/></td>
+		      <td>
+		        <input id="cc1" class="easyui-combobox" data-options="valueField: 'id',textField: 'text',url: 'selectAddress.do?id=0',
+                                  onSelect: function(rec){
+                                  var url = 'selectAddress.do?id='+rec.id;
+                                  $('#cc2').combobox('clear');
+                                  $('#cc2').combobox('reload', url);}" >
+                <input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'">
+		      </td>
 			</tr>
 			<tr>
 			<td>邮编：</td>
@@ -159,13 +165,27 @@ function closeDialog() {
 			</tr>
 			<tr>
 			  <td>客户类型：</td>
-				<td><select></select></td>
+				<td>
+				  <input class="easyui-combobox" type="text"
+						 id="type" name="type" editable="false"
+						 panelHeight="auto"
+						 data-options="
+                         url:'${pageContext.request.contextPath}/Customer/selectType.do',
+                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.type}"/>
+				</td>
 			
 			</tr>
 			
 			<tr>
 				<td>客户来源：</td>
-				<td><select></select></td>
+				<td>
+				  <input class="easyui-combobox" type="text"
+						 id="origintype" name="origintype" editable="false"
+						 panelHeight="auto"
+						 data-options="
+                         url:'${pageContext.request.contextPath}/Customer/selectOriginType.do',
+                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.origintype}"/>
+				</td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				
 			</tr>

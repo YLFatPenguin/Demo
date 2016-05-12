@@ -31,10 +31,9 @@
 			<tr>
 				<td>客户名称：</td>
 				<td><input type="hidden" id="id" name="id" /><input type="text" id="title" name="title" readonly="readonly"  value="${customerList.name}"/></td>
-				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>客户编号：</td>
-				<td><input type="text" id="customeraction"
-					name="customeraction" readonly="readonly" value="${customerList.number}" /></td>
+			</tr>
+			<tr>
+			  <td><input type="text" name="linkman" value="${customer_list.linkman }"/></td>
 			</tr>
 			<tr>
 				<td>客户手机：</td>

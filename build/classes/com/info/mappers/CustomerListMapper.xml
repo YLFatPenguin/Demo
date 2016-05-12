@@ -134,7 +134,7 @@
         from customer_list
     </select>
     
-        <!-- 查询合同信息 -->
+        <!-- 查询列表信息 -->
     <select id="listCustomer" parameterType="Map" resultMap="BaseResultMap">
          select a.id,a.name,a.mobile,
         b.name as customertypename,
@@ -182,8 +182,9 @@
           LEFT JOIN customer_type ON customer_list.Type=customer_type.Id
          WHERE customer_list.id=#{id}
     </select>
-    <update id="updateCustomerInfo"  parameterMap ="BaseResultMap" >
-         UPDATE customer_list SET customer_list.`Name`=#{name},customer_list.Sex=#{sex},customer_list.Mobile=#{mobile},customer_list.Email=#{email},
+    
+    <update id="updateCustomerInfo"  parameterType ="com.info.entity.vo.CustomerListVo" >
+     UPDATE customer_list SET customer_list.`Name`=#{name},customer_list.Sex=#{sex},customer_list.Mobile=#{mobile},customer_list.Email=#{email},
          customer_list.Certificate=#{certificate}
      ,customer_list.CertificateCode=#{certificatecode},customer_list.BirthDate=#{birthdate},customer_list.HomeAddress=#{homeaddress}
      ,customer_list.SendType=#{sendtype},customer_list.Address=#{address},customer_list.Postalcode=#{postalcode},
@@ -191,18 +192,22 @@
      ,customer_list.Family=#{family},customer_list.Memo=#{memo},customer_list.type=#{type},customer_list.originType=#{origintype}
      ,customer_list.Label=#{label} WHERE customer_list.Id=#{id}
     </update>
+
     <!-- 删除客户信息 -->
     <delete id="deleteCustomerInfo" parameterType="int">
       delete from customer_list where id=#{id}
     </delete>
+   
     <!-- 查询寄送地址下拉框 -->
     <select id="selectAddress" parameterType="int" resultType="com.info.entity.DictArea">
     select id,text from dict_area where parentid=#{parentid}
     </select>
+    
     <!-- 查询客户来源下拉框 -->
     <select id="selectOriginType" resultType="Map">
      select id,name from customer_origintype
     </select>   
+    
     <!-- 查询客户类型下拉框 -->        
     <select id="selectType" resultType="Map">
       select id,name from customer_type

@@ -138,6 +138,7 @@
                       <input id="cc1" class="easyui-combobox" data-options="valueField: 'id',textField: 'text',url: 'selectAddress.do?id=0',
                                   onSelect: function(rec){
                                   var url = 'selectAddress.do?id='+rec.id;
+                                  $('#cc2').combobox('clear');
                                   $('#cc2').combobox('reload', url);}" >
                       <input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'">
                     </td>
@@ -170,22 +171,22 @@
                     <td><font face="wingdings" color="red">v</font>客户类型：</td>
                     <td>
                     <input class="easyui-combobox" type="text"
-						 id="typeName" name="typeName" editable="false"
+						 id="type" name="type" editable="false"
 						 panelHeight="auto"
 						 data-options="
                          url:'${pageContext.request.contextPath}/Customer/selectType.do',
-                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.typeName}"/>
-                   
+                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.type}"/>                   
                     </td>
                 </tr>
                 <tr>
                     <td><font face="wingdings" color="red">v</font>客户来源：</td>
-                    <td><input class="easyui-combobox" type="text"
-						 id="originTypeName" name="originTypeName" editable="false"
+                    <td>
+                      <input class="easyui-combobox" type="text"
+						 id="origintype" name="origintype" editable="false"
 						 panelHeight="auto"
 						 data-options="
                          url:'${pageContext.request.contextPath}/Customer/selectOriginType.do',
-                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.originTypeName}"/>
+                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.origintype}"/>
                     </td>
                 </tr>
                 <tr>

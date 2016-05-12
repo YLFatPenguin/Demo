@@ -23,10 +23,8 @@
 	function deleteCustomer(index){  
         $('#dg').datagrid('selectRow',index);  
         var row = $('#dg').datagrid('getSelected');  
-        if (row){  
-            
+        if (row){     
             $.post(url = "${pageContext.request.contextPath}/Customer/delete.do?id="+row.id,function(result){
-            	
                 if(result.success){
                     $.messager.alert("系统提示","数据已成功删除！");
                     $("#dg").datagrid("reload");

@@ -81,13 +81,17 @@ public class CustomerController
 
     // 客户的详情页面 ---客户的详情，已经实现带数据传输到前台的功能,通过id去查询数据
     @RequestMapping(value = "/goCustomerInfo")
-    public ModelAndView goCustomerInfo(@RequestParam(value = "id", required = false) int id) throws Exception
+    public ModelAndView goCustomerInfo(@RequestParam(value = "id", required = false) int id,
+            HttpServletResponse response) throws Exception
     {
         // 存储在map中，多个变量存放在map中去查询
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("Integer", id);
         // 把数据存放到map中以后，通过调用dao的方法去查询数据库
         Object object = customerService.selectCustomer(id);
+        JsonConfig jsonConfig = new JsonConfig();
+        jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
+
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/customerDetail");
         mv.addObject(object);
@@ -150,7 +154,7 @@ public class CustomerController
         return mv;
     }
 
-    // 新增客户页面 ---- 只是进到新增页面
+    // 新增客户页面 ---- 只是进到新增页面 分为两步去实现，一步是进入到新增页面，然后是开始输入新增信息，进行插入操作
     @RequestMapping(value = "/goAddCustomer")
     public ModelAndView goAddCustomer() throws Exception
     {

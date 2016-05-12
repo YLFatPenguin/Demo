@@ -71,27 +71,29 @@ function closeDialog() {
 }
 </script>
 </head>
-<body style="margin: 15px;">
+<body>
 	<div id="p" class="easyui-panel" title="添加新的联系人"
-		style="width: 700px; height: 460px; padding: 10px;">
+		style="width: 700px; height: 460px;">
 		<form id="fm" action="post">
 		<table>
 			<tr>
 				<td>名称：
-				<input type="text" id="name" name="name"  value="${customerlinkman.name}"/></td>
+				 <input type="text" id="name" name="name"  value="${customerlinkman.name}"/>
+				</td>
 				<td>生日：
 				<input type="text" id="id"
-					name="id"  value="${customerLinkman.birthdate}" /></td>
-				</tr>			
-			 <tr>
+					name="id"  value="${customerLinkman.birthdate}" />
+				</td>
+			</tr>	
+					
+			<tr>
 			  <td>
 			               所属客户:<input type="text"/>
 			  </td>
-			 </tr>
+			</tr>
 			<tr>
-				<td>客户手机：</td>
-				<td><input type="text" id="mobile" name="mobile"  value="${customerLinkman.mobile}"/></td>
-			 
+			  <td>客户手机：</td>
+			  <td><input type="text" id="mobile" name="mobile"  value="${customerLinkman.mobile}"/></td>
 				<td>客户邮箱：</td>
 				<td><input type="text" id="email" name="email"  value="${customerLinkman.email }"/></td>
 				
