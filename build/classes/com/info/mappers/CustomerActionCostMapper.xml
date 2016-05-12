@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.CustomerActionCostMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.CustomerActionCost" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="ActionId" property="actionid" jdbcType="INTEGER" />
+        <result column="UserId" property="userid" jdbcType="INTEGER" />
+        <result column="Type" property="type" jdbcType="INTEGER" />
+        <result column="Cost" property="cost" jdbcType="DOUBLE" />
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="CustomerId" property="customerid" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.CustomerActionCost" >
+        insert into customer_action_cost (Id, ActionId, UserId, 
+            Type, Cost, CreateDate, 
+            CustomerId)
+        values (#{id,jdbcType=INTEGER}, #{actionid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+            #{type,jdbcType=INTEGER}, #{cost,jdbcType=DOUBLE}, #{createdate,jdbcType=TIMESTAMP}, 
+            #{customerid,jdbcType=INTEGER})
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, ActionId, UserId, Type, Cost, CreateDate, CustomerId
+        from customer_action_cost
+    </select>
+
+</mapper>

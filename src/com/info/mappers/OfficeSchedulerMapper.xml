@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.OfficeSchedulerMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.OfficeScheduler" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="Start" property="start" jdbcType="TIMESTAMP" />
+        <result column="End" property="end" jdbcType="TIMESTAMP" />
+        <result column="Subject" property="subject" jdbcType="VARCHAR" />
+        <result column="MemberId" property="memberid" jdbcType="INTEGER" />
+        <result column="Location" property="location" jdbcType="VARCHAR" />
+        <result column="Label" property="label" jdbcType="INTEGER" />
+        <result column="Status" property="status" jdbcType="INTEGER" />
+        <result column="Description" property="description" jdbcType="LONGVARCHAR" />
+        <result column="Text1" property="text1" jdbcType="LONGVARCHAR" />
+        <result column="Text2" property="text2" jdbcType="LONGVARCHAR" />
+        <result column="Status2" property="status2" jdbcType="INTEGER" />
+        <result column="Remind" property="remind" jdbcType="TINYINT" />
+        <result column="Reminded" property="reminded" jdbcType="TINYINT" />
+        <result column="AudioFile" property="audiofile" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.OfficeScheduler" >
+        insert into office_scheduler (Id, Start, End, 
+            Subject, MemberId, Location, 
+            Label, Status, Description, 
+            Text1, Text2, Status2, 
+            Remind, Reminded, AudioFile
+            )
+        values (#{id,jdbcType=INTEGER}, #{start,jdbcType=TIMESTAMP}, #{end,jdbcType=TIMESTAMP}, 
+            #{subject,jdbcType=VARCHAR}, #{memberid,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, 
+            #{label,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}, 
+            #{text1,jdbcType=LONGVARCHAR}, #{text2,jdbcType=LONGVARCHAR}, #{status2,jdbcType=INTEGER}, 
+            #{remind,jdbcType=TINYINT}, #{reminded,jdbcType=TINYINT}, #{audiofile,jdbcType=VARCHAR}
+            )
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, Start, End, Subject, MemberId, Location, Label, Status, Description, Text1, 
+        Text2, Status2, Remind, Reminded, AudioFile
+        from office_scheduler
+    </select>
+
+</mapper>

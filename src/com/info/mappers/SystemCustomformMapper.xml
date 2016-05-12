@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.SystemCustomformMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.SystemCustomform" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="FormName" property="formname" jdbcType="VARCHAR" />
+        <result column="CustomField1" property="customfield1" jdbcType="LONGVARCHAR" />
+        <result column="CustomField2" property="customfield2" jdbcType="LONGVARCHAR" />
+        <result column="CustomField3" property="customfield3" jdbcType="LONGVARCHAR" />
+        <result column="CustomField4" property="customfield4" jdbcType="LONGVARCHAR" />
+        <result column="CustomField5" property="customfield5" jdbcType="LONGVARCHAR" />
+        <result column="CustomField6" property="customfield6" jdbcType="LONGVARCHAR" />
+        <result column="CustomField7" property="customfield7" jdbcType="LONGVARCHAR" />
+        <result column="CustomField8" property="customfield8" jdbcType="LONGVARCHAR" />
+        <result column="CustomField9" property="customfield9" jdbcType="LONGVARCHAR" />
+        <result column="CustomField10" property="customfield10" jdbcType="LONGVARCHAR" />
+        <result column="CustomField11" property="customfield11" jdbcType="LONGVARCHAR" />
+        <result column="CustomField12" property="customfield12" jdbcType="LONGVARCHAR" />
+        <result column="CustomField13" property="customfield13" jdbcType="LONGVARCHAR" />
+        <result column="CustomField14" property="customfield14" jdbcType="LONGVARCHAR" />
+        <result column="CustomField15" property="customfield15" jdbcType="LONGVARCHAR" />
+        <result column="CustomField16" property="customfield16" jdbcType="LONGVARCHAR" />
+        <result column="CustomField17" property="customfield17" jdbcType="LONGVARCHAR" />
+        <result column="CustomField18" property="customfield18" jdbcType="LONGVARCHAR" />
+        <result column="CustomField19" property="customfield19" jdbcType="LONGVARCHAR" />
+        <result column="CustomField20" property="customfield20" jdbcType="LONGVARCHAR" />
+        <result column="CustomField21" property="customfield21" jdbcType="LONGVARCHAR" />
+        <result column="CustomField22" property="customfield22" jdbcType="LONGVARCHAR" />
+        <result column="CustomField23" property="customfield23" jdbcType="LONGVARCHAR" />
+        <result column="CustomField24" property="customfield24" jdbcType="LONGVARCHAR" />
+        <result column="CustomField25" property="customfield25" jdbcType="LONGVARCHAR" />
+        <result column="CustomField26" property="customfield26" jdbcType="LONGVARCHAR" />
+        <result column="CustomField27" property="customfield27" jdbcType="LONGVARCHAR" />
+        <result column="CustomField28" property="customfield28" jdbcType="LONGVARCHAR" />
+        <result column="CustomField29" property="customfield29" jdbcType="LONGVARCHAR" />
+        <result column="CustomField30" property="customfield30" jdbcType="LONGVARCHAR" />
+        <result column="CustomField31" property="customfield31" jdbcType="LONGVARCHAR" />
+        <result column="CustomField32" property="customfield32" jdbcType="LONGVARCHAR" />
+        <result column="CustomField33" property="customfield33" jdbcType="LONGVARCHAR" />
+        <result column="CustomField34" property="customfield34" jdbcType="LONGVARCHAR" />
+        <result column="CustomField35" property="customfield35" jdbcType="LONGVARCHAR" />
+        <result column="CustomField36" property="customfield36" jdbcType="LONGVARCHAR" />
+        <result column="CustomField37" property="customfield37" jdbcType="LONGVARCHAR" />
+        <result column="CustomField38" property="customfield38" jdbcType="LONGVARCHAR" />
+        <result column="CustomField39" property="customfield39" jdbcType="LONGVARCHAR" />
+        <result column="CustomField40" property="customfield40" jdbcType="LONGVARCHAR" />
+        <result column="CustomField41" property="customfield41" jdbcType="LONGVARCHAR" />
+        <result column="CustomField42" property="customfield42" jdbcType="LONGVARCHAR" />
+        <result column="CustomField43" property="customfield43" jdbcType="LONGVARCHAR" />
+        <result column="CustomField44" property="customfield44" jdbcType="LONGVARCHAR" />
+        <result column="CustomField45" property="customfield45" jdbcType="LONGVARCHAR" />
+        <result column="CustomField46" property="customfield46" jdbcType="LONGVARCHAR" />
+        <result column="CustomField47" property="customfield47" jdbcType="LONGVARCHAR" />
+        <result column="CustomField48" property="customfield48" jdbcType="LONGVARCHAR" />
+        <result column="CustomField49" property="customfield49" jdbcType="LONGVARCHAR" />
+        <result column="CustomField50" property="customfield50" jdbcType="LONGVARCHAR" />
+        <result column="CustomField51" property="customfield51" jdbcType="LONGVARCHAR" />
+        <result column="CustomField52" property="customfield52" jdbcType="LONGVARCHAR" />
+        <result column="CustomField53" property="customfield53" jdbcType="LONGVARCHAR" />
+        <result column="CustomField54" property="customfield54" jdbcType="LONGVARCHAR" />
+        <result column="CustomField55" property="customfield55" jdbcType="LONGVARCHAR" />
+        <result column="CustomField56" property="customfield56" jdbcType="LONGVARCHAR" />
+        <result column="CustomField57" property="customfield57" jdbcType="LONGVARCHAR" />
+        <result column="CustomField58" property="customfield58" jdbcType="LONGVARCHAR" />
+        <result column="CustomField59" property="customfield59" jdbcType="LONGVARCHAR" />
+        <result column="CustomField60" property="customfield60" jdbcType="LONGVARCHAR" />
+        <result column="CustomField61" property="customfield61" jdbcType="LONGVARCHAR" />
+        <result column="CustomField62" property="customfield62" jdbcType="LONGVARCHAR" />
+        <result column="CustomField63" property="customfield63" jdbcType="LONGVARCHAR" />
+        <result column="CustomField64" property="customfield64" jdbcType="LONGVARCHAR" />
+        <result column="CustomField65" property="customfield65" jdbcType="LONGVARCHAR" />
+        <result column="CustomField66" property="customfield66" jdbcType="LONGVARCHAR" />
+        <result column="CustomField67" property="customfield67" jdbcType="LONGVARCHAR" />
+        <result column="CustomField68" property="customfield68" jdbcType="LONGVARCHAR" />
+        <result column="CustomField69" property="customfield69" jdbcType="LONGVARCHAR" />
+        <result column="CustomField70" property="customfield70" jdbcType="LONGVARCHAR" />
+        <result column="CustomField71" property="customfield71" jdbcType="LONGVARCHAR" />
+        <result column="CustomField72" property="customfield72" jdbcType="LONGVARCHAR" />
+        <result column="CustomField73" property="customfield73" jdbcType="LONGVARCHAR" />
+        <result column="CustomField74" property="customfield74" jdbcType="LONGVARCHAR" />
+        <result column="CustomField75" property="customfield75" jdbcType="LONGVARCHAR" />
+        <result column="CustomField76" property="customfield76" jdbcType="LONGVARCHAR" />
+        <result column="CustomField77" property="customfield77" jdbcType="LONGVARCHAR" />
+        <result column="CustomField78" property="customfield78" jdbcType="LONGVARCHAR" />
+        <result column="CustomField79" property="customfield79" jdbcType="LONGVARCHAR" />
+        <result column="CustomField80" property="customfield80" jdbcType="LONGVARCHAR" />
+        <result column="CreateUser" property="createuser" jdbcType="INTEGER" />
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="IsFlow" property="isflow" jdbcType="TINYINT" />
+        <result column="CustomField81" property="customfield81" jdbcType="LONGVARCHAR" />
+        <result column="CustomField82" property="customfield82" jdbcType="LONGVARCHAR" />
+        <result column="CustomField83" property="customfield83" jdbcType="LONGVARCHAR" />
+        <result column="CustomField84" property="customfield84" jdbcType="LONGVARCHAR" />
+        <result column="CustomField85" property="customfield85" jdbcType="LONGVARCHAR" />
+        <result column="CustomField86" property="customfield86" jdbcType="LONGVARCHAR" />
+        <result column="CustomField87" property="customfield87" jdbcType="LONGVARCHAR" />
+        <result column="CustomField88" property="customfield88" jdbcType="LONGVARCHAR" />
+        <result column="CustomField89" property="customfield89" jdbcType="LONGVARCHAR" />
+        <result column="CustomField90" property="customfield90" jdbcType="LONGVARCHAR" />
+        <result column="CustomField91" property="customfield91" jdbcType="LONGVARCHAR" />
+        <result column="CustomField92" property="customfield92" jdbcType="LONGVARCHAR" />
+        <result column="CustomField93" property="customfield93" jdbcType="LONGVARCHAR" />
+        <result column="CustomField94" property="customfield94" jdbcType="LONGVARCHAR" />
+        <result column="CustomField95" property="customfield95" jdbcType="LONGVARCHAR" />
+        <result column="CustomField96" property="customfield96" jdbcType="LONGVARCHAR" />
+        <result column="CustomField97" property="customfield97" jdbcType="LONGVARCHAR" />
+        <result column="CustomField98" property="customfield98" jdbcType="LONGVARCHAR" />
+        <result column="CustomField99" property="customfield99" jdbcType="LONGVARCHAR" />
+        <result column="CustomField100" property="customfield100" jdbcType="LONGVARCHAR" />
+        <result column="CustomField101" property="customfield101" jdbcType="LONGVARCHAR" />
+        <result column="CustomField102" property="customfield102" jdbcType="LONGVARCHAR" />
+        <result column="CustomField103" property="customfield103" jdbcType="LONGVARCHAR" />
+        <result column="CustomField104" property="customfield104" jdbcType="LONGVARCHAR" />
+        <result column="CustomField105" property="customfield105" jdbcType="LONGVARCHAR" />
+        <result column="CustomField106" property="customfield106" jdbcType="LONGVARCHAR" />
+        <result column="CustomField107" property="customfield107" jdbcType="LONGVARCHAR" />
+        <result column="CustomField108" property="customfield108" jdbcType="LONGVARCHAR" />
+        <result column="CustomField109" property="customfield109" jdbcType="LONGVARCHAR" />
+        <result column="CustomField110" property="customfield110" jdbcType="LONGVARCHAR" />
+        <result column="CustomField111" property="customfield111" jdbcType="LONGVARCHAR" />
+        <result column="CustomField112" property="customfield112" jdbcType="LONGVARCHAR" />
+        <result column="CustomField113" property="customfield113" jdbcType="LONGVARCHAR" />
+        <result column="CustomField114" property="customfield114" jdbcType="LONGVARCHAR" />
+        <result column="CustomField115" property="customfield115" jdbcType="LONGVARCHAR" />
+        <result column="CustomField116" property="customfield116" jdbcType="LONGVARCHAR" />
+        <result column="CustomField117" property="customfield117" jdbcType="LONGVARCHAR" />
+        <result column="CustomField118" property="customfield118" jdbcType="LONGVARCHAR" />
+        <result column="CustomField119" property="customfield119" jdbcType="LONGVARCHAR" />
+        <result column="CustomField120" property="customfield120" jdbcType="LONGVARCHAR" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.SystemCustomform" >
+        insert into system_customform (Id, FormName, CustomField1, 
+            CustomField2, CustomField3, CustomField4, 
+            CustomField5, CustomField6, CustomField7, 
+            CustomField8, CustomField9, CustomField10, 
+            CustomField11, CustomField12, 
+            CustomField13, CustomField14, 
+            CustomField15, CustomField16, 
+            CustomField17, CustomField18, 
+            CustomField19, CustomField20, 
+            CustomField21, CustomField22, 
+            CustomField23, CustomField24, 
+            CustomField25, CustomField26, 
+            CustomField27, CustomField28, 
+            CustomField29, CustomField30, 
+            CustomField31, CustomField32, 
+            CustomField33, CustomField34, 
+            CustomField35, CustomField36, 
+            CustomField37, CustomField38, 
+            CustomField39, CustomField40, 
+            CustomField41, CustomField42, 
+            CustomField43, CustomField44, 
+            CustomField45, CustomField46, 
+            CustomField47, CustomField48, 
+            CustomField49, CustomField50, 
+            CustomField51, CustomField52, 
+            CustomField53, CustomField54, 
+            CustomField55, CustomField56, 
+            CustomField57, CustomField58, 
+            CustomField59, CustomField60, 
+            CustomField61, CustomField62, 
+            CustomField63, CustomField64, 
+            CustomField65, CustomField66, 
+            CustomField67, CustomField68, 
+            CustomField69, CustomField70, 
+            CustomField71, CustomField72, 
+            CustomField73, CustomField74, 
+            CustomField75, CustomField76, 
+            CustomField77, CustomField78, 
+            CustomField79, CustomField80, 
+            CreateUser, CreateDate, IsFlow, 
+            CustomField81, CustomField82, 
+            CustomField83, CustomField84, 
+            CustomField85, CustomField86, 
+            CustomField87, CustomField88, 
+            CustomField89, CustomField90, 
+            CustomField91, CustomField92, 
+            CustomField93, CustomField94, 
+            CustomField95, CustomField96, 
+            CustomField97, CustomField98, 
+            CustomField99, CustomField100, 
+            CustomField101, CustomField102, 
+            CustomField103, CustomField104, 
+            CustomField105, CustomField106, 
+            CustomField107, CustomField108, 
+            CustomField109, CustomField110, 
+            CustomField111, CustomField112, 
+            CustomField113, CustomField114, 
+            CustomField115, CustomField116, 
+            CustomField117, CustomField118, 
+            CustomField119, CustomField120
+            )
+        values (#{id,jdbcType=INTEGER}, #{formname,jdbcType=VARCHAR}, #{customfield1,jdbcType=LONGVARCHAR}, 
+            #{customfield2,jdbcType=LONGVARCHAR}, #{customfield3,jdbcType=LONGVARCHAR}, #{customfield4,jdbcType=LONGVARCHAR}, 
+            #{customfield5,jdbcType=LONGVARCHAR}, #{customfield6,jdbcType=LONGVARCHAR}, #{customfield7,jdbcType=LONGVARCHAR}, 
+            #{customfield8,jdbcType=LONGVARCHAR}, #{customfield9,jdbcType=LONGVARCHAR}, #{customfield10,jdbcType=LONGVARCHAR}, 
+            #{customfield11,jdbcType=LONGVARCHAR}, #{customfield12,jdbcType=LONGVARCHAR}, 
+            #{customfield13,jdbcType=LONGVARCHAR}, #{customfield14,jdbcType=LONGVARCHAR}, 
+            #{customfield15,jdbcType=LONGVARCHAR}, #{customfield16,jdbcType=LONGVARCHAR}, 
+            #{customfield17,jdbcType=LONGVARCHAR}, #{customfield18,jdbcType=LONGVARCHAR}, 
+            #{customfield19,jdbcType=LONGVARCHAR}, #{customfield20,jdbcType=LONGVARCHAR}, 
+            #{customfield21,jdbcType=LONGVARCHAR}, #{customfield22,jdbcType=LONGVARCHAR}, 
+            #{customfield23,jdbcType=LONGVARCHAR}, #{customfield24,jdbcType=LONGVARCHAR}, 
+            #{customfield25,jdbcType=LONGVARCHAR}, #{customfield26,jdbcType=LONGVARCHAR}, 
+            #{customfield27,jdbcType=LONGVARCHAR}, #{customfield28,jdbcType=LONGVARCHAR}, 
+            #{customfield29,jdbcType=LONGVARCHAR}, #{customfield30,jdbcType=LONGVARCHAR}, 
+            #{customfield31,jdbcType=LONGVARCHAR}, #{customfield32,jdbcType=LONGVARCHAR}, 
+            #{customfield33,jdbcType=LONGVARCHAR}, #{customfield34,jdbcType=LONGVARCHAR}, 
+            #{customfield35,jdbcType=LONGVARCHAR}, #{customfield36,jdbcType=LONGVARCHAR}, 
+            #{customfield37,jdbcType=LONGVARCHAR}, #{customfield38,jdbcType=LONGVARCHAR}, 
+            #{customfield39,jdbcType=LONGVARCHAR}, #{customfield40,jdbcType=LONGVARCHAR}, 
+            #{customfield41,jdbcType=LONGVARCHAR}, #{customfield42,jdbcType=LONGVARCHAR}, 
+            #{customfield43,jdbcType=LONGVARCHAR}, #{customfield44,jdbcType=LONGVARCHAR}, 
+            #{customfield45,jdbcType=LONGVARCHAR}, #{customfield46,jdbcType=LONGVARCHAR}, 
+            #{customfield47,jdbcType=LONGVARCHAR}, #{customfield48,jdbcType=LONGVARCHAR}, 
+            #{customfield49,jdbcType=LONGVARCHAR}, #{customfield50,jdbcType=LONGVARCHAR}, 
+            #{customfield51,jdbcType=LONGVARCHAR}, #{customfield52,jdbcType=LONGVARCHAR}, 
+            #{customfield53,jdbcType=LONGVARCHAR}, #{customfield54,jdbcType=LONGVARCHAR}, 
+            #{customfield55,jdbcType=LONGVARCHAR}, #{customfield56,jdbcType=LONGVARCHAR}, 
+            #{customfield57,jdbcType=LONGVARCHAR}, #{customfield58,jdbcType=LONGVARCHAR}, 
+            #{customfield59,jdbcType=LONGVARCHAR}, #{customfield60,jdbcType=LONGVARCHAR}, 
+            #{customfield61,jdbcType=LONGVARCHAR}, #{customfield62,jdbcType=LONGVARCHAR}, 
+            #{customfield63,jdbcType=LONGVARCHAR}, #{customfield64,jdbcType=LONGVARCHAR}, 
+            #{customfield65,jdbcType=LONGVARCHAR}, #{customfield66,jdbcType=LONGVARCHAR}, 
+            #{customfield67,jdbcType=LONGVARCHAR}, #{customfield68,jdbcType=LONGVARCHAR}, 
+            #{customfield69,jdbcType=LONGVARCHAR}, #{customfield70,jdbcType=LONGVARCHAR}, 
+            #{customfield71,jdbcType=LONGVARCHAR}, #{customfield72,jdbcType=LONGVARCHAR}, 
+            #{customfield73,jdbcType=LONGVARCHAR}, #{customfield74,jdbcType=LONGVARCHAR}, 
+            #{customfield75,jdbcType=LONGVARCHAR}, #{customfield76,jdbcType=LONGVARCHAR}, 
+            #{customfield77,jdbcType=LONGVARCHAR}, #{customfield78,jdbcType=LONGVARCHAR}, 
+            #{customfield79,jdbcType=LONGVARCHAR}, #{customfield80,jdbcType=LONGVARCHAR}, 
+            #{createuser,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, #{isflow,jdbcType=TINYINT}, 
+            #{customfield81,jdbcType=LONGVARCHAR}, #{customfield82,jdbcType=LONGVARCHAR}, 
+            #{customfield83,jdbcType=LONGVARCHAR}, #{customfield84,jdbcType=LONGVARCHAR}, 
+            #{customfield85,jdbcType=LONGVARCHAR}, #{customfield86,jdbcType=LONGVARCHAR}, 
+            #{customfield87,jdbcType=LONGVARCHAR}, #{customfield88,jdbcType=LONGVARCHAR}, 
+            #{customfield89,jdbcType=LONGVARCHAR}, #{customfield90,jdbcType=LONGVARCHAR}, 
+            #{customfield91,jdbcType=LONGVARCHAR}, #{customfield92,jdbcType=LONGVARCHAR}, 
+            #{customfield93,jdbcType=LONGVARCHAR}, #{customfield94,jdbcType=LONGVARCHAR}, 
+            #{customfield95,jdbcType=LONGVARCHAR}, #{customfield96,jdbcType=LONGVARCHAR}, 
+            #{customfield97,jdbcType=LONGVARCHAR}, #{customfield98,jdbcType=LONGVARCHAR}, 
+            #{customfield99,jdbcType=LONGVARCHAR}, #{customfield100,jdbcType=LONGVARCHAR}, 
+            #{customfield101,jdbcType=LONGVARCHAR}, #{customfield102,jdbcType=LONGVARCHAR}, 
+            #{customfield103,jdbcType=LONGVARCHAR}, #{customfield104,jdbcType=LONGVARCHAR}, 
+            #{customfield105,jdbcType=LONGVARCHAR}, #{customfield106,jdbcType=LONGVARCHAR}, 
+            #{customfield107,jdbcType=LONGVARCHAR}, #{customfield108,jdbcType=LONGVARCHAR}, 
+            #{customfield109,jdbcType=LONGVARCHAR}, #{customfield110,jdbcType=LONGVARCHAR}, 
+            #{customfield111,jdbcType=LONGVARCHAR}, #{customfield112,jdbcType=LONGVARCHAR}, 
+            #{customfield113,jdbcType=LONGVARCHAR}, #{customfield114,jdbcType=LONGVARCHAR}, 
+            #{customfield115,jdbcType=LONGVARCHAR}, #{customfield116,jdbcType=LONGVARCHAR}, 
+            #{customfield117,jdbcType=LONGVARCHAR}, #{customfield118,jdbcType=LONGVARCHAR}, 
+            #{customfield119,jdbcType=LONGVARCHAR}, #{customfield120,jdbcType=LONGVARCHAR}
+            )
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, FormName, CustomField1, CustomField2, CustomField3, CustomField4, CustomField5, 
+        CustomField6, CustomField7, CustomField8, CustomField9, CustomField10, CustomField11, 
+        CustomField12, CustomField13, CustomField14, CustomField15, CustomField16, CustomField17, 
+        CustomField18, CustomField19, CustomField20, CustomField21, CustomField22, CustomField23, 
+        CustomField24, CustomField25, CustomField26, CustomField27, CustomField28, CustomField29, 
+        CustomField30, CustomField31, CustomField32, CustomField33, CustomField34, CustomField35, 
+        CustomField36, CustomField37, CustomField38, CustomField39, CustomField40, CustomField41, 
+        CustomField42, CustomField43, CustomField44, CustomField45, CustomField46, CustomField47, 
+        CustomField48, CustomField49, CustomField50, CustomField51, CustomField52, CustomField53, 
+        CustomField54, CustomField55, CustomField56, CustomField57, CustomField58, CustomField59, 
+        CustomField60, CustomField61, CustomField62, CustomField63, CustomField64, CustomField65, 
+        CustomField66, CustomField67, CustomField68, CustomField69, CustomField70, CustomField71, 
+        CustomField72, CustomField73, CustomField74, CustomField75, CustomField76, CustomField77, 
+        CustomField78, CustomField79, CustomField80, CreateUser, CreateDate, IsFlow, CustomField81, 
+        CustomField82, CustomField83, CustomField84, CustomField85, CustomField86, CustomField87, 
+        CustomField88, CustomField89, CustomField90, CustomField91, CustomField92, CustomField93, 
+        CustomField94, CustomField95, CustomField96, CustomField97, CustomField98, CustomField99, 
+        CustomField100, CustomField101, CustomField102, CustomField103, CustomField104, CustomField105, 
+        CustomField106, CustomField107, CustomField108, CustomField109, CustomField110, CustomField111, 
+        CustomField112, CustomField113, CustomField114, CustomField115, CustomField116, CustomField117, 
+        CustomField118, CustomField119, CustomField120
+        from system_customform
+    </select>
+
+</mapper>

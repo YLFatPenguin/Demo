@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.CustomerActionMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.CustomerAction" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="CustomerId" property="customerid" jdbcType="INTEGER" />
+        <result column="Type" property="type" jdbcType="INTEGER" />
+        <result column="ResultId" property="resultid" jdbcType="INTEGER" />
+        <result column="UserId" property="userid" jdbcType="INTEGER" />
+        <result column="ActionDate" property="actiondate" jdbcType="TIMESTAMP" />
+        <result column="AccessDate" property="accessdate" jdbcType="TIMESTAMP" />
+        <result column="Memo" property="memo" jdbcType="LONGVARCHAR" />
+        <result column="Attachment" property="attachment" jdbcType="VARCHAR" />
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="LinkmanId" property="linkmanid" jdbcType="INTEGER" />
+        <result column="ProjectId" property="projectid" jdbcType="INTEGER" />
+        <result column="SignId" property="signid" jdbcType="INTEGER" />
+        <result column="Comment" property="comment" jdbcType="LONGVARCHAR" />
+        <result column="Status" property="status" jdbcType="INTEGER" />
+        <result column="TimeCost" property="timecost" jdbcType="INTEGER" />
+        <result column="ModifyDate" property="modifydate" jdbcType="TIMESTAMP" />
+        <result column="ModifyUser" property="modifyuser" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.CustomerAction" >
+        insert into customer_action (Id, CustomerId, Type, 
+            ResultId, UserId, ActionDate, 
+            AccessDate, Memo, Attachment, 
+            CreateDate, LinkmanId, ProjectId, 
+            SignId, Comment, Status, 
+            TimeCost, ModifyDate, ModifyUser
+            )
+        values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+            #{resultid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{actiondate,jdbcType=TIMESTAMP}, 
+            #{accessdate,jdbcType=TIMESTAMP}, #{memo,jdbcType=LONGVARCHAR}, #{attachment,jdbcType=VARCHAR}, 
+            #{createdate,jdbcType=TIMESTAMP}, #{linkmanid,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, 
+            #{signid,jdbcType=INTEGER}, #{comment,jdbcType=LONGVARCHAR}, #{status,jdbcType=INTEGER}, 
+            #{timecost,jdbcType=INTEGER}, #{modifydate,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=INTEGER}
+            )
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, CustomerId, Type, ResultId, UserId, ActionDate, AccessDate, Memo, Attachment, 
+        CreateDate, LinkmanId, ProjectId, SignId, Comment, Status, TimeCost, ModifyDate, 
+        ModifyUser
+        from customer_action
+    </select>
+
+</mapper>

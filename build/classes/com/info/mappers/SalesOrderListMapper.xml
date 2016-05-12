@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SalesOrderListMapper">
+	<resultMap id="BaseResultMap" type="com.info.entity.SalesOrderList">
+		<result column="Id" property="id" jdbcType="INTEGER" />
+		<result column="Title" property="title" jdbcType="VARCHAR" />
+		<result column="CustomerId" property="customerid" jdbcType="INTEGER" />
+		<result column="SubmitUser" property="submituser" jdbcType="INTEGER" />
+		<result column="SubmitDate" property="submitdate" jdbcType="TIMESTAMP" />
+		<result column="OrderPrice" property="orderprice" jdbcType="DOUBLE" />
+		<result column="Status" property="status" jdbcType="INTEGER" />
+		<result column="CreateUser" property="createuser" jdbcType="INTEGER" />
+		<result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+		<result column="Memo" property="memo" jdbcType="LONGVARCHAR" />
+		<result column="Attachment" property="attachment" jdbcType="LONGVARCHAR" />
+		<result column="CustomField1" property="customfield1" jdbcType="VARCHAR" />
+		<result column="CustomField2" property="customfield2" jdbcType="VARCHAR" />
+		<result column="CustomField3" property="customfield3" jdbcType="VARCHAR" />
+		<result column="CustomField4" property="customfield4" jdbcType="VARCHAR" />
+		<result column="CustomField5" property="customfield5" jdbcType="VARCHAR" />
+		<result column="CustomField6" property="customfield6" jdbcType="VARCHAR" />
+		<result column="CustomField7" property="customfield7" jdbcType="VARCHAR" />
+		<result column="CustomField8" property="customfield8" jdbcType="VARCHAR" />
+		<result column="CustomField9" property="customfield9" jdbcType="VARCHAR" />
+		<result column="CustomField10" property="customfield10"
+			jdbcType="VARCHAR" />
+		<result column="CustomField11" property="customfield11"
+			jdbcType="VARCHAR" />
+		<result column="CustomField12" property="customfield12"
+			jdbcType="VARCHAR" />
+		<result column="CustomField13" property="customfield13"
+			jdbcType="VARCHAR" />
+		<result column="CustomField14" property="customfield14"
+			jdbcType="VARCHAR" />
+		<result column="CustomField15" property="customfield15"
+			jdbcType="VARCHAR" />
+		<result column="CustomField16" property="customfield16"
+			jdbcType="VARCHAR" />
+		<result column="CustomField17" property="customfield17"
+			jdbcType="VARCHAR" />
+		<result column="CustomField18" property="customfield18"
+			jdbcType="VARCHAR" />
+		<result column="CustomField19" property="customfield19"
+			jdbcType="VARCHAR" />
+		<result column="CustomField20" property="customfield20"
+			jdbcType="VARCHAR" />
+		<result column="ExtraMembers" property="extramembers" jdbcType="LONGVARCHAR" />
+		<result column="IsAudit" property="isaudit" jdbcType="TINYINT" />
+		<result column="ContractUrl" property="contracturl" jdbcType="VARCHAR" />
+		<result column="StartDate" property="startdate" jdbcType="VARCHAR" />
+		<result column="EndDate" property="enddate" jdbcType="VARCHAR" />
+		<result column="LoanType" property="loantype" jdbcType="INTEGER" />
+		<result column="InvestTime" property="investtime" jdbcType="INTEGER" />
+		<result column="InvestTimeType" property="investtimetype"
+			jdbcType="INTEGER" />
+		<result column="Bank" property="bank" jdbcType="VARCHAR" />
+		<result column="BankCode" property="bankcode" jdbcType="VARCHAR" />
+		<result column="Profit" property="profit" jdbcType="DOUBLE" />
+		<result column="TotalPrice" property="totalprice" jdbcType="DOUBLE" />
+		<result column="LoanDate" property="loandate" jdbcType="TIMESTAMP" />
+		<result column="FactEndDate" property="factenddate" jdbcType="TIMESTAMP" />
+		<result column="IsAdvance" property="isadvance" jdbcType="TINYINT" />
+		<result column="EndType" property="endtype" jdbcType="VARCHAR" />
+		<result column="FactTotalPrice" property="facttotalprice"
+			jdbcType="DOUBLE" />
+		<result column="AuditStatus" property="auditstatus" jdbcType="INTEGER" />
+	</resultMap>
+	
+	   <resultMap id="OrderList" type="com.info.entity.SalesOrderList">
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="Title" property="title" jdbcType="VARCHAR" />
+        <result column="SubmitUser" property="submituser" jdbcType="INTEGER" />
+        <result column="OrderPrice" property="orderprice" jdbcType="DOUBLE" />
+        <result column="Status" property="status" jdbcType="INTEGER" />
+        <!--  <result column="StartDate" property="startdate" jdbcType="VARCHAR" />
+        <result column="EndDate" property="enddate" jdbcType="VARCHAR" />        -->
+        <result column="StartDate" property="startdate" jdbcType="TIMESTAMP" />
+        <result column="EndDate" property="enddate" jdbcType="TIMESTAMP" />       
+        <result column="Profit" property="profit" jdbcType="DOUBLE" />
+        <result column="customername" property="customername" jdbcType="VARCHAR" />
+        <result column="productname" property="productname" jdbcType="VARCHAR" />
+    </resultMap>
+
+	<insert id="insert" parameterType="com.info.entity.SalesOrderList">
+		insert into sales_order_list
+		(Id, Title, CustomerId,
+		SubmitUser, SubmitDate, OrderPrice,
+		Status,
+		CreateUser, CreateDate,
+		Memo, Attachment, CustomField1,
+		CustomField2,
+		CustomField3, CustomField4,
+		CustomField5, CustomField6, CustomField7,
+		CustomField8, CustomField9, CustomField10,
+		CustomField11,
+		CustomField12, CustomField13,
+		CustomField14, CustomField15,
+		CustomField16,
+		CustomField17, CustomField18, CustomField19,
+		CustomField20, ExtraMembers, IsAudit,
+		ContractUrl, StartDate, EndDate,
+		LoanType, InvestTime, InvestTimeType,
+		Bank, BankCode, Profit,
+		TotalPrice, LoanDate, FactEndDate,
+		IsAdvance, EndType, FactTotalPrice,
+		AuditStatus)
+		values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+		#{customerid,jdbcType=INTEGER},
+		#{submituser,jdbcType=INTEGER},
+		#{submitdate,jdbcType=TIMESTAMP}, #{orderprice,jdbcType=DOUBLE},
+		#{status,jdbcType=INTEGER}, #{createuser,jdbcType=INTEGER},
+		#{createdate,jdbcType=TIMESTAMP},
+		#{memo,jdbcType=LONGVARCHAR},
+		#{attachment,jdbcType=LONGVARCHAR}, #{customfield1,jdbcType=VARCHAR},
+		#{customfield2,jdbcType=VARCHAR}, #{customfield3,jdbcType=VARCHAR},
+		#{customfield4,jdbcType=VARCHAR},
+		#{customfield5,jdbcType=VARCHAR},
+		#{customfield6,jdbcType=VARCHAR}, #{customfield7,jdbcType=VARCHAR},
+		#{customfield8,jdbcType=VARCHAR}, #{customfield9,jdbcType=VARCHAR},
+		#{customfield10,jdbcType=VARCHAR},
+		#{customfield11,jdbcType=VARCHAR},
+		#{customfield12,jdbcType=VARCHAR}, #{customfield13,jdbcType=VARCHAR},
+		#{customfield14,jdbcType=VARCHAR}, #{customfield15,jdbcType=VARCHAR},
+		#{customfield16,jdbcType=VARCHAR},
+		#{customfield17,jdbcType=VARCHAR},
+		#{customfield18,jdbcType=VARCHAR}, #{customfield19,jdbcType=VARCHAR},
+		#{customfield20,jdbcType=VARCHAR},
+		#{extramembers,jdbcType=LONGVARCHAR}, #{isaudit,jdbcType=TINYINT},
+		#{contracturl,jdbcType=VARCHAR}, #{startdate,jdbcType=TIMESTAMP},
+		#{enddate,jdbcType=TIMESTAMP},
+		#{loantype,jdbcType=INTEGER},
+		#{investtime,jdbcType=INTEGER}, #{investtimetype,jdbcType=INTEGER},
+		#{bank,jdbcType=VARCHAR}, #{bankcode,jdbcType=VARCHAR},
+		#{profit,jdbcType=DOUBLE},
+		#{totalprice,jdbcType=DOUBLE},
+		#{loandate,jdbcType=TIMESTAMP}, #{factenddate,jdbcType=TIMESTAMP},
+		#{isadvance,jdbcType=TINYINT}, #{endtype,jdbcType=VARCHAR},
+		#{facttotalprice,jdbcType=DOUBLE},
+		#{auditstatus,jdbcType=INTEGER})
+	</insert>
+
+    <!-- 查询合同信息 -->
+	<select id="listSalesOrder" parameterType="Map" resultMap="OrderList">
+	     select a.id,a.status,a.title,
+		d.name as customername,
+		a.submituser,a.startdate,a.enddate,
+		<!-- 后台不做处理的把date转为string型 -->
+		<!--  date_format(a.startdate, '%Y-%m-%d') as startdate,-->
+		<!--date_format(a.enddate, '%Y-%m-%d') as enddate,-->
+		c.name as productname,
+		a.orderprice,a.profit
+		from
+		sales_order_list a
+		left join customer_list d on d.id = a.customerid
+		left join sales_order_product b on b.orderid = a.id
+		left join sales_product_list c on c.id = b.productid
+		<where>
+            <if test="name!=null and name!='' ">
+                and d.name like #{name}
+            </if>
+		</where>
+		<if test="start!=null and size!=null">
+			limit #{start},#{size}
+		</if>
+	</select>
+	
+	<!-- 查询合同状态下拉框 -->
+	   <select id="getOrderStatus" parameterType="Map" resultType="HashMap">
+         select *
+        from
+        sales_order_status 
+        </select>
+        
+     <!-- 查询产品列表下拉框 -->
+       <select id="getProductList" parameterType="Map" resultType="HashMap">
+         select concat(id,',',profit) as idprofit,name 
+        <!--select * -->
+        from
+        sales_product_list
+       </select>
+       
+       <!-- 查询支付方式下拉框 -->
+       <select id="getLoanType" parameterType="Map" resultType="HashMap">
+         select *
+        from
+        sales_product_loantype
+       </select>
+
+
+	<!-- 总记录条数 -->
+	<select id="iTotalSalesOrderList" resultType="java.lang.Integer">
+         select count(a.id)
+        from
+        sales_order_list a
+        left join customer_list d on d.id = a.customerid
+        left join sales_order_product b on b.orderid = a.id
+        left join sales_product_list c on c.id = b.productid
+        <where>
+            <if test="name!=null and name!='' ">
+                and d.name like #{name}
+            </if>
+        </where>
+	</select>
+
+	<!-- 通过Id查询合同 -->
+	<select id="selectOrderById" parameterType="int" resultMap="BaseResultMap"
+		useCache="false">
+		select * from sales_order_list where id = #{id}
+	</select>
+	
+
+	<!-- 新增合同订单 -->
+	<insert id="insertSalesOrder" parameterType="com.info.entity.SalesOrderList"   useGeneratedKeys="true" keyProperty="id"> 
+		insert into sales_order_list (title,customerid,bank,bankcode,orderprice,profit,startdate,investtime,investtimetype,enddate,loantype,totalprice,submituser,submitdate,createdate) 
+		values 
+		( #{title},#{customerid},#{bank},#{bankcode},#{orderprice},#{profit},#{startdate},#{investtime},#{investtimetype},#{enddate},#{loantype},#{totalprice},#{submituser},#{submitdate},#{createdate}) 
+		        <selectKey keyProperty="id" resultType="int">
+                      select LAST_INSERT_ID() 
+                </selectKey> 
+	</insert> 
+	<!-- 更新编辑合同信息 -->	
+	<!--  <update id="updateSalesOrder" parameterType="com.info.entity.SalesOrderList">
+	    update sales_order_list Id, Title, CustomerId,
+		SubmitUser, SubmitDate, OrderPrice,
+		Status,
+		CreateUser, CreateDate,
+		Memo, Attachment, CustomField1,
+		CustomField2,
+		CustomField3, CustomField4,
+		CustomField5, CustomField6, CustomField7,
+		CustomField8, CustomField9, CustomField10,
+		CustomField11,
+		CustomField12, CustomField13,
+		CustomField14, CustomField15,
+		CustomField16,
+		CustomField17, CustomField18, CustomField19,
+		CustomField20, ExtraMembers, IsAudit,
+		ContractUrl, StartDate, EndDate,
+		LoanType, InvestTime, InvestTimeType,
+		Bank, BankCode, Profit,
+		TotalPrice, LoanDate, FactEndDate,
+		IsAdvance, EndType, FactTotalPrice,
+		AuditStatus
+	
+	</update>-->
+
+</mapper>

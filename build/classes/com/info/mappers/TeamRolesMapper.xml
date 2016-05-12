@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.TeamRolesMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.TeamRoles" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="Name" property="name" jdbcType="VARCHAR" />
+        <result column="IsGroupManager" property="isgroupmanager" jdbcType="TINYINT" />
+        <result column="PermissionValue" property="permissionvalue" jdbcType="VARCHAR" />
+        <result column="InheritId" property="inheritid" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.TeamRoles" >
+        insert into team_roles (Id, Name, IsGroupManager, 
+            PermissionValue, InheritId)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{isgroupmanager,jdbcType=TINYINT}, 
+            #{permissionvalue,jdbcType=VARCHAR}, #{inheritid,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, Name, IsGroupManager, PermissionValue, InheritId
+        from team_roles
+    </select>
+
+</mapper>

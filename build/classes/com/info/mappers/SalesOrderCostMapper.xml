@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.SalesOrderCostMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.SalesOrderCost" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="OrderId" property="orderid" jdbcType="INTEGER" />
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="UserId" property="userid" jdbcType="INTEGER" />
+        <result column="Money" property="money" jdbcType="DOUBLE" />
+        <result column="Type" property="type" jdbcType="INTEGER" />
+        <result column="CustomerId" property="customerid" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.SalesOrderCost" >
+        insert into sales_order_cost (Id, OrderId, CreateDate, 
+            UserId, Money, Type, 
+            CustomerId)
+        values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, 
+            #{userid,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, #{type,jdbcType=INTEGER}, 
+            #{customerid,jdbcType=INTEGER})
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, OrderId, CreateDate, UserId, Money, Type, CustomerId
+        from sales_order_cost
+    </select>
+
+</mapper>

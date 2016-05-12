@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动包位置不指定默认用自带的jar包 -->
+    <classPathEntry location="D:\mysql-5.6.17-winx64\mysql-connector-java-5.1.22-drive\mysql-connector-java-5.1.22-bin.jar" />
+    <context id="DB2Tables" targetRuntime="MyBatis3Simple"  defaultModelType="flat">
+     <property name="javaFileEncoding" value="UTF-8" />
+        <!--  <commentGenerator>
+            <property name="suppressAllComments" value="false" />
+        </commentGenerator>-->
+        <!-- 数据库链接URL、用户名、密码 -->
+         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/ourhr" userId="root" password="root"> 
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa">-->
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>        
+        
+        <!-- 生成实体类的包名和位置，这里配置将生成的实体类放在com.info.entity".模块.entity这个包下 -->
+        <javaModelGenerator targetPackage="com.info.entity.tmp" targetProject="Ourhr_SSM/src">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        
+        <!-- 生成的SQL映射文件map.xml包名和位置 -->
+        <sqlMapGenerator targetPackage="tmp" targetProject="Ourhr_SSM/src">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        
+        <!-- 生成DAO的包名和位置，这里配置将生成的dao类放在com.credit.模块.dao这个包下 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.info.dao.tmp" targetProject="Ourhr_SSM/src">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        
+        <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+        <table tableName="f1_department" domainObjectName="Department" />
+        <table tableName="f1_fixedstaff" domainObjectName="FixedStaff" />
+        <table tableName="f1_post" domainObjectName="Post" />
+        <table tableName="f1_postsort" domainObjectName="PostSort" />
+        <table tableName="f2_candidate" domainObjectName="Candidate" />
+        <table tableName="f2_staff" domainObjectName="Staff" />
+        <table tableName="f3_servestaff" domainObjectName="ServeStaff" />
+        <table tableName="f3_servestaffhis" domainObjectName="ServeStaffhis" />
+        <table tableName="f3_transferorder" domainObjectName="TransferOrder" />
+        <table tableName="f4_contract" domainObjectName="Contract" />
+        <table tableName="f4_contractmodel" domainObjectName="ContractModel" />
+        <table tableName="f5_leave" domainObjectName="Leave" />
+        <table tableName="f6_accum" domainObjectName="Accum" />
+        <table tableName="f6_accumhis" domainObjectName="AccumHis" />
+        <table tableName="f6_insure" domainObjectName="Insure" />
+        <table tableName="f6_insurehis" domainObjectName="InsureHis" />
+
+        
+        
+    </context>
+</generatorConfiguration>

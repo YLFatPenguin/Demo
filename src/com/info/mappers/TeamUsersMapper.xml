@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.TeamUsersMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.TeamUsers" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="GroupId" property="groupid" jdbcType="INTEGER" />
+        <result column="IsAdmin" property="isadmin" jdbcType="TINYINT" />
+        <result column="IsGroupManager" property="isgroupmanager" jdbcType="TINYINT" />
+        <result column="IsSales" property="issales" jdbcType="TINYINT" />
+        <result column="TitleId" property="titleid" jdbcType="INTEGER" />
+        <result column="JoinDate" property="joindate" jdbcType="TIMESTAMP" />
+        <result column="LeaveDate" property="leavedate" jdbcType="TIMESTAMP" />
+        <result column="Name" property="name" jdbcType="VARCHAR" />
+        <result column="LoginName" property="loginname" jdbcType="VARCHAR" />
+        <result column="Password" property="password" jdbcType="VARCHAR" />
+        <result column="Tel" property="tel" jdbcType="VARCHAR" />
+        <result column="Mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="ImNumber" property="imnumber" jdbcType="VARCHAR" />
+        <result column="Email" property="email" jdbcType="VARCHAR" />
+        <result column="Address" property="address" jdbcType="VARCHAR" />
+        <result column="Birthdate" property="birthdate" jdbcType="TIMESTAMP" />
+        <result column="Photo" property="photo" jdbcType="VARCHAR" />
+        <result column="Memo" property="memo" jdbcType="LONGVARCHAR" />
+        <result column="SchedulerWorkTime" property="schedulerworktime" jdbcType="TINYINT" />
+        <result column="Enabled" property="enabled" jdbcType="TINYINT" />
+        <result column="OrderPrice" property="orderprice" jdbcType="DOUBLE" />
+        <result column="OrderAmount" property="orderamount" jdbcType="INTEGER" />
+        <result column="PermissionValue" property="permissionvalue" jdbcType="VARCHAR" />
+        <result column="PermissionId" property="permissionid" jdbcType="VARCHAR" />
+        <result column="PermissionInherit" property="permissioninherit" jdbcType="LONGVARCHAR" />
+        <result column="ChartByYear" property="chartbyyear" jdbcType="TINYINT" />
+        <result column="Skin" property="skin" jdbcType="VARCHAR" />
+        <result column="CustomerLimit" property="customerlimit" jdbcType="INTEGER" />
+        <result column="USBKey" property="usbkey" jdbcType="TINYINT" />
+        <result column="USBKeySn" property="usbkeysn" jdbcType="VARCHAR" />
+        <result column="HomePage" property="homepage" jdbcType="INTEGER" />
+        <result column="Attachment" property="attachment" jdbcType="VARCHAR" />
+        <result column="Alpha" property="alpha" jdbcType="VARCHAR" />
+        <result column="Spell" property="spell" jdbcType="VARCHAR" />
+        <result column="ThumbBase64" property="thumbbase64" jdbcType="LONGVARCHAR" />
+        <result column="ManageGroups" property="managegroups" jdbcType="VARCHAR" />
+        <result column="ManageUsers" property="manageusers" jdbcType="VARCHAR" />
+        <result column="LastAccessTime" property="lastaccesstime" jdbcType="TIMESTAMP" />
+        <result column="AppEnabled" property="appenabled" jdbcType="TINYINT" />
+        <result column="ModuleSetting" property="modulesetting" jdbcType="VARCHAR" />
+        <result column="UUID" property="uuid" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.TeamUsers" >
+        insert into team_users (Id, GroupId, IsAdmin, 
+            IsGroupManager, IsSales, TitleId, 
+            JoinDate, LeaveDate, Name, 
+            LoginName, Password, Tel, 
+            Mobile, ImNumber, Email, 
+            Address, Birthdate, Photo, 
+            Memo, SchedulerWorkTime, Enabled, 
+            OrderPrice, OrderAmount, PermissionValue, 
+            PermissionId, PermissionInherit, 
+            ChartByYear, Skin, CustomerLimit, 
+            USBKey, USBKeySn, HomePage, 
+            Attachment, Alpha, Spell, 
+            ThumbBase64, ManageGroups, ManageUsers, 
+            LastAccessTime, AppEnabled, ModuleSetting, 
+            UUID)
+        values (#{id,jdbcType=INTEGER}, #{groupid,jdbcType=INTEGER}, #{isadmin,jdbcType=TINYINT}, 
+            #{isgroupmanager,jdbcType=TINYINT}, #{issales,jdbcType=TINYINT}, #{titleid,jdbcType=INTEGER}, 
+            #{joindate,jdbcType=TIMESTAMP}, #{leavedate,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, 
+            #{loginname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+            #{mobile,jdbcType=VARCHAR}, #{imnumber,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+            #{address,jdbcType=VARCHAR}, #{birthdate,jdbcType=TIMESTAMP}, #{photo,jdbcType=VARCHAR}, 
+            #{memo,jdbcType=LONGVARCHAR}, #{schedulerworktime,jdbcType=TINYINT}, #{enabled,jdbcType=TINYINT}, 
+            #{orderprice,jdbcType=DOUBLE}, #{orderamount,jdbcType=INTEGER}, #{permissionvalue,jdbcType=VARCHAR}, 
+            #{permissionid,jdbcType=VARCHAR}, #{permissioninherit,jdbcType=LONGVARCHAR}, 
+            #{chartbyyear,jdbcType=TINYINT}, #{skin,jdbcType=VARCHAR}, #{customerlimit,jdbcType=INTEGER}, 
+            #{usbkey,jdbcType=TINYINT}, #{usbkeysn,jdbcType=VARCHAR}, #{homepage,jdbcType=INTEGER}, 
+            #{attachment,jdbcType=VARCHAR}, #{alpha,jdbcType=VARCHAR}, #{spell,jdbcType=VARCHAR}, 
+            #{thumbbase64,jdbcType=LONGVARCHAR}, #{managegroups,jdbcType=VARCHAR}, #{manageusers,jdbcType=VARCHAR}, 
+            #{lastaccesstime,jdbcType=TIMESTAMP}, #{appenabled,jdbcType=TINYINT}, #{modulesetting,jdbcType=VARCHAR}, 
+            #{uuid,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, GroupId, IsAdmin, IsGroupManager, IsSales, TitleId, JoinDate, LeaveDate, 
+        Name, LoginName, Password, Tel, Mobile, ImNumber, Email, Address, Birthdate, Photo, 
+        Memo, SchedulerWorkTime, Enabled, OrderPrice, OrderAmount, PermissionValue, PermissionId, 
+        PermissionInherit, ChartByYear, Skin, CustomerLimit, USBKey, USBKeySn, HomePage, 
+        Attachment, Alpha, Spell, ThumbBase64, ManageGroups, ManageUsers, LastAccessTime, 
+        AppEnabled, ModuleSetting, UUID
+        from team_users
+    </select>
+
+</mapper>

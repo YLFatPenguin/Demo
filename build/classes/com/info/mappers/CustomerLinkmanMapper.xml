@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="CustomerLinkmanMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.CustomerLinkman" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="CustomerId" property="customerid" jdbcType="INTEGER" />
+        <result column="Type" property="type" jdbcType="INTEGER" />
+        <result column="Name" property="name" jdbcType="VARCHAR" />
+        <result column="ShortName" property="shortname" jdbcType="VARCHAR" />
+        <result column="Title" property="title" jdbcType="VARCHAR" />
+        <result column="Tel" property="tel" jdbcType="VARCHAR" />
+        <result column="Mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="Address" property="address" jdbcType="VARCHAR" />
+        <result column="Email" property="email" jdbcType="VARCHAR" />
+        <result column="Web" property="web" jdbcType="VARCHAR" />
+        <result column="Birthdate" property="birthdate" jdbcType="TIMESTAMP" />
+        <result column="Memo" property="memo" jdbcType="LONGVARCHAR" />
+        <result column="Alpha" property="alpha" jdbcType="CHAR" />
+        <result column="Owner" property="owner" jdbcType="INTEGER" />
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="GroupName" property="groupname" jdbcType="VARCHAR" />
+        <result column="Sex" property="sex" jdbcType="TINYINT" />
+        <result column="CustomField1" property="customfield1" jdbcType="VARCHAR" />
+        <result column="CustomField2" property="customfield2" jdbcType="VARCHAR" />
+        <result column="CustomField3" property="customfield3" jdbcType="VARCHAR" />
+        <result column="CustomField4" property="customfield4" jdbcType="VARCHAR" />
+        <result column="CustomField5" property="customfield5" jdbcType="VARCHAR" />
+        <result column="CustomField6" property="customfield6" jdbcType="VARCHAR" />
+        <result column="CustomField7" property="customfield7" jdbcType="VARCHAR" />
+        <result column="CustomField8" property="customfield8" jdbcType="VARCHAR" />
+        <result column="CustomField9" property="customfield9" jdbcType="VARCHAR" />
+        <result column="CustomField10" property="customfield10" jdbcType="VARCHAR" />
+        <result column="CustomField11" property="customfield11" jdbcType="VARCHAR" />
+        <result column="CustomField12" property="customfield12" jdbcType="VARCHAR" />
+        <result column="CustomField13" property="customfield13" jdbcType="VARCHAR" />
+        <result column="CustomField14" property="customfield14" jdbcType="VARCHAR" />
+        <result column="CustomField15" property="customfield15" jdbcType="VARCHAR" />
+        <result column="CustomField16" property="customfield16" jdbcType="VARCHAR" />
+        <result column="CustomField17" property="customfield17" jdbcType="VARCHAR" />
+        <result column="CustomField18" property="customfield18" jdbcType="VARCHAR" />
+        <result column="CustomField19" property="customfield19" jdbcType="VARCHAR" />
+        <result column="CustomField20" property="customfield20" jdbcType="VARCHAR" />
+        <result column="MainLinkman" property="mainlinkman" jdbcType="TINYINT" />
+        <result column="WeChat" property="wechat" jdbcType="VARCHAR" />
+        <result column="QQ" property="qq" jdbcType="VARCHAR" />
+        <result column="Label" property="label" jdbcType="LONGVARCHAR" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.CustomerLinkman" >
+        insert into customer_linkman (Id, CustomerId, Type, 
+            Name, ShortName, Title, 
+            Tel, Mobile, Address, 
+            Email, Web, Birthdate, 
+            Memo, Alpha, Owner, 
+            CreateDate, GroupName, Sex, 
+            CustomField1, CustomField2, CustomField3, 
+            CustomField4, CustomField5, CustomField6, 
+            CustomField7, CustomField8, CustomField9, 
+            CustomField10, CustomField11, CustomField12, 
+            CustomField13, CustomField14, CustomField15, 
+            CustomField16, CustomField17, CustomField18, 
+            CustomField19, CustomField20, MainLinkman, 
+            WeChat, QQ, Label
+            )
+        values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+            #{name,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+            #{tel,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+            #{email,jdbcType=VARCHAR}, #{web,jdbcType=VARCHAR}, #{birthdate,jdbcType=TIMESTAMP}, 
+            #{memo,jdbcType=LONGVARCHAR}, #{alpha,jdbcType=CHAR}, #{owner,jdbcType=INTEGER}, 
+            #{createdate,jdbcType=TIMESTAMP}, #{groupname,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, 
+            #{customfield1,jdbcType=VARCHAR}, #{customfield2,jdbcType=VARCHAR}, #{customfield3,jdbcType=VARCHAR}, 
+            #{customfield4,jdbcType=VARCHAR}, #{customfield5,jdbcType=VARCHAR}, #{customfield6,jdbcType=VARCHAR}, 
+            #{customfield7,jdbcType=VARCHAR}, #{customfield8,jdbcType=VARCHAR}, #{customfield9,jdbcType=VARCHAR}, 
+            #{customfield10,jdbcType=VARCHAR}, #{customfield11,jdbcType=VARCHAR}, #{customfield12,jdbcType=VARCHAR}, 
+            #{customfield13,jdbcType=VARCHAR}, #{customfield14,jdbcType=VARCHAR}, #{customfield15,jdbcType=VARCHAR}, 
+            #{customfield16,jdbcType=VARCHAR}, #{customfield17,jdbcType=VARCHAR}, #{customfield18,jdbcType=VARCHAR}, 
+            #{customfield19,jdbcType=VARCHAR}, #{customfield20,jdbcType=VARCHAR}, #{mainlinkman,jdbcType=TINYINT}, 
+            #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{label,jdbcType=LONGVARCHAR}
+            )
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, CustomerId, Type, Name, ShortName, Title, Tel, Mobile, Address, Email, 
+        Web, Birthdate, Memo, Alpha, Owner, CreateDate, GroupName, Sex, CustomField1, CustomField2, 
+        CustomField3, CustomField4, CustomField5, CustomField6, CustomField7, CustomField8, 
+        CustomField9, CustomField10, CustomField11, CustomField12, CustomField13, CustomField14, 
+        CustomField15, CustomField16, CustomField17, CustomField18, CustomField19, CustomField20, 
+        MainLinkman, WeChat, QQ, Label
+        from customer_linkman
+    </select>
+
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.ProjectLinkmanListMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.ProjectLinkmanList" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="ProjectId" property="projectid" jdbcType="INTEGER" />
+        <result column="ParentId" property="parentid" jdbcType="INTEGER" />
+        <result column="Corp" property="corp" jdbcType="VARCHAR" />
+        <result column="Name" property="name" jdbcType="VARCHAR" />
+        <result column="Decision" property="decision" jdbcType="INTEGER" />
+        <result column="Effect" property="effect" jdbcType="VARCHAR" />
+        <result column="Title" property="title" jdbcType="VARCHAR" />
+        <result column="ContactWay" property="contactway" jdbcType="VARCHAR" />
+        <result column="Description" property="description" jdbcType="VARCHAR" />
+        <result column="Relation" property="relation" jdbcType="INTEGER" />
+        <result column="SupportType" property="supporttype" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.ProjectLinkmanList" >
+        insert into project_linkman_list (Id, ProjectId, ParentId, 
+            Corp, Name, Decision, 
+            Effect, Title, ContactWay, 
+            Description, Relation, SupportType
+            )
+        values (#{id,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, 
+            #{corp,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{decision,jdbcType=INTEGER}, 
+            #{effect,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{contactway,jdbcType=VARCHAR}, 
+            #{description,jdbcType=VARCHAR}, #{relation,jdbcType=INTEGER}, #{supporttype,jdbcType=INTEGER}
+            )
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, ProjectId, ParentId, Corp, Name, Decision, Effect, Title, ContactWay, 
+        Description, Relation, SupportType
+        from project_linkman_list
+    </select>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.info.dao.SalesOrderAdvanceMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.SalesOrderAdvance" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="OrderId" property="orderid" jdbcType="INTEGER" />
+        <result column="FactEndDate" property="factenddate" jdbcType="TIMESTAMP" />
+        <result column="Money" property="money" jdbcType="DOUBLE" />
+        <result column="EndType" property="endtype" jdbcType="VARCHAR" />
+        <result column="Audit" property="audit" jdbcType="TINYINT" />
+        <result column="LoanDate" property="loandate" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.info.entity.SalesOrderAdvance" >
+        insert into sales_order_advance (Id, OrderId, FactEndDate, 
+            Money, EndType, Audit, 
+            LoanDate)
+        values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{factenddate,jdbcType=TIMESTAMP}, 
+            #{money,jdbcType=DOUBLE}, #{endtype,jdbcType=VARCHAR}, #{audit,jdbcType=TINYINT}, 
+            #{loandate,jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, OrderId, FactEndDate, Money, EndType, Audit, LoanDate
+        from sales_order_advance
+    </select>
+
+</mapper>

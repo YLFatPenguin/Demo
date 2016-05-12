@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="CustomerListMapper" >
+    <resultMap id="BaseResultMap" type="com.info.entity.CustomerList" >
+        <result column="Id" property="id" jdbcType="INTEGER" />
+        <result column="Name" property="name" jdbcType="VARCHAR" />
+        <result column="ShortName" property="shortname" jdbcType="VARCHAR" />
+        <result column="Linkman" property="linkman" jdbcType="VARCHAR" />
+        <result column="Area1" property="area1" jdbcType="INTEGER" />
+        <result column="Area2" property="area2" jdbcType="INTEGER" />
+        <result column="TelPrefix" property="telprefix" jdbcType="VARCHAR" />
+        <result column="Postalcode" property="postalcode" jdbcType="VARCHAR" />
+        <result column="Tel" property="tel" jdbcType="VARCHAR" />
+        <result column="Fax" property="fax" jdbcType="VARCHAR" />
+        <result column="Email" property="email" jdbcType="VARCHAR" />
+        <result column="Web" property="web" jdbcType="VARCHAR" />
+        <result column="Address" property="address" jdbcType="VARCHAR" />
+        <result column="OriginType" property="origintype" jdbcType="INTEGER" />
+        <result column="Type" property="type" jdbcType="INTEGER" />
+        <result column="Memo" property="memo" jdbcType="LONGVARCHAR" />
+        <result column="Owner" property="owner" jdbcType="INTEGER" />
+        <result column="AssignDate" property="assigndate" jdbcType="TIMESTAMP" />
+        <result column="CreateUser" property="createuser" jdbcType="INTEGER" />
+        <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+        <result column="ModifyUser" property="modifyuser" jdbcType="INTEGER" />
+        <result column="ModifyDate" property="modifydate" jdbcType="TIMESTAMP" />
+        <result column="LastActionDate" property="lastactiondate" jdbcType="TIMESTAMP" />
+        <result column="Alpha1" property="alpha1" jdbcType="CHAR" />
+        <result column="Alpha2" property="alpha2" jdbcType="CHAR" />
+        <result column="ShareMembers" property="sharemembers" jdbcType="LONGVARCHAR" />
+        <result column="Mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="Number" property="number" jdbcType="VARCHAR" />
+        <result column="BirthDate" property="birthdate" jdbcType="TIMESTAMP" />
+        <result column="ParentId" property="parentid" jdbcType="INTEGER" />
+        <result column="GroupId" property="groupid" jdbcType="INTEGER" />
+        <result column="ParentRelation" property="parentrelation" jdbcType="VARCHAR" />
+        <result column="CustomField1" property="customfield1" jdbcType="VARCHAR" />
+        <result column="CustomField2" property="customfield2" jdbcType="VARCHAR" />
+        <result column="CustomField3" property="customfield3" jdbcType="VARCHAR" />
+        <result column="CustomField4" property="customfield4" jdbcType="VARCHAR" />
+        <result column="CustomField5" property="customfield5" jdbcType="VARCHAR" />
+        <result column="CustomField6" property="customfield6" jdbcType="VARCHAR" />
+        <result column="CustomField7" property="customfield7" jdbcType="VARCHAR" />
+        <result column="CustomField8" property="customfield8" jdbcType="VARCHAR" />
+        <result column="CustomField9" property="customfield9" jdbcType="VARCHAR" />
+        <result column="CustomField10" property="customfield10" jdbcType="VARCHAR" />
+        <result column="CustomField11" property="customfield11" jdbcType="VARCHAR" />
+        <result column="CustomField12" property="customfield12" jdbcType="VARCHAR" />
+        <result column="CustomField13" property="customfield13" jdbcType="VARCHAR" />
+        <result column="CustomField14" property="customfield14" jdbcType="VARCHAR" />
+        <result column="CustomField15" property="customfield15" jdbcType="VARCHAR" />
+        <result column="CustomField16" property="customfield16" jdbcType="VARCHAR" />
+        <result column="CustomField17" property="customfield17" jdbcType="VARCHAR" />
+        <result column="CustomField18" property="customfield18" jdbcType="VARCHAR" />
+        <result column="CustomField19" property="customfield19" jdbcType="VARCHAR" />
+        <result column="CustomField20" property="customfield20" jdbcType="VARCHAR" />
+        <result column="Attachment" property="attachment" jdbcType="LONGVARCHAR" />
+        <result column="Label" property="label" jdbcType="LONGVARCHAR" />
+        <result column="LinkmanTitle" property="linkmantitle" jdbcType="VARCHAR" />
+        <result column="WeChat" property="wechat" jdbcType="VARCHAR" />
+        <result column="QQ" property="qq" jdbcType="VARCHAR" />
+        <result column="Spell" property="spell" jdbcType="VARCHAR" />
+        <result column="PT" property="pt" jdbcType="VARCHAR" />
+        <result column="QRImageUrl" property="qrimageurl" jdbcType="VARCHAR" />
+        <result column="Certificate" property="certificate" jdbcType="VARCHAR" />
+        <result column="CertificateCode" property="certificatecode" jdbcType="VARCHAR" />
+        <result column="SendType" property="sendtype" jdbcType="VARCHAR" />
+        <result column="HomeAddress" property="homeaddress" jdbcType="VARCHAR" />
+        <result column="Family" property="family" jdbcType="VARCHAR" />
+        <result column="EmergencyLinkman" property="emergencylinkman" jdbcType="VARCHAR" />
+        <result column="RelationCustomer" property="relationcustomer" jdbcType="VARCHAR" />
+        <result column="Sex" property="sex" jdbcType="INTEGER" />
+    </resultMap>
+ 
+
+     <insert id="insertCustomerInfo" parameterType="com.info.entity.CustomerList" >
+        insert into customer_list (Id, Name, ShortName, 
+            Linkman, Area1, Area2, 
+            TelPrefix, Postalcode, Tel, 
+            Fax, Email, Web, 
+            Address, OriginType, Type, 
+            Memo, Owner, AssignDate, 
+            CreateUser, CreateDate, ModifyUser, 
+            ModifyDate, LastActionDate, Alpha1, 
+            Alpha2, ShareMembers, Mobile, 
+            Number, BirthDate, ParentId, 
+            GroupId, ParentRelation, CustomField1, 
+            CustomField2, CustomField3, CustomField4, 
+            CustomField5, CustomField6, CustomField7, 
+            CustomField8, CustomField9, CustomField10, 
+            CustomField11, CustomField12, CustomField13, 
+            CustomField14, CustomField15, CustomField16, 
+            CustomField17, CustomField18, CustomField19, 
+            CustomField20, Attachment, Label, 
+            LinkmanTitle, WeChat, QQ, 
+            Spell, PT, QRImageUrl, 
+            Certificate, CertificateCode, SendType, 
+            HomeAddress, Family, EmergencyLinkman, 
+            RelationCustomer, Sex)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, 
+            #{linkman,jdbcType=VARCHAR}, #{area1,jdbcType=INTEGER}, #{area2,jdbcType=INTEGER}, 
+            #{telprefix,jdbcType=VARCHAR}, #{postalcode,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+            #{fax,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{web,jdbcType=VARCHAR}, 
+            #{address,jdbcType=VARCHAR}, #{origintype,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+            #{memo,jdbcType=LONGVARCHAR}, #{owner,jdbcType=INTEGER}, #{assigndate,jdbcType=TIMESTAMP}, 
+            #{createuser,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, #{modifyuser,jdbcType=INTEGER}, 
+            #{modifydate,jdbcType=TIMESTAMP}, #{lastactiondate,jdbcType=TIMESTAMP}, #{alpha1,jdbcType=CHAR}, 
+            #{alpha2,jdbcType=CHAR}, #{sharemembers,jdbcType=LONGVARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+            #{number,jdbcType=VARCHAR}, #{birthdate,jdbcType=TIMESTAMP}, #{parentid,jdbcType=INTEGER}, 
+            #{groupid,jdbcType=INTEGER}, #{parentrelation,jdbcType=VARCHAR}, #{customfield1,jdbcType=VARCHAR}, 
+            #{customfield2,jdbcType=VARCHAR}, #{customfield3,jdbcType=VARCHAR}, #{customfield4,jdbcType=VARCHAR}, 
+            #{customfield5,jdbcType=VARCHAR}, #{customfield6,jdbcType=VARCHAR}, #{customfield7,jdbcType=VARCHAR}, 
+            #{customfield8,jdbcType=VARCHAR}, #{customfield9,jdbcType=VARCHAR}, #{customfield10,jdbcType=VARCHAR}, 
+            #{customfield11,jdbcType=VARCHAR}, #{customfield12,jdbcType=VARCHAR}, #{customfield13,jdbcType=VARCHAR}, 
+            #{customfield14,jdbcType=VARCHAR}, #{customfield15,jdbcType=VARCHAR}, #{customfield16,jdbcType=VARCHAR}, 
+            #{customfield17,jdbcType=VARCHAR}, #{customfield18,jdbcType=VARCHAR}, #{customfield19,jdbcType=VARCHAR}, 
+            #{customfield20,jdbcType=VARCHAR}, #{attachment,jdbcType=LONGVARCHAR}, #{label,jdbcType=LONGVARCHAR}, 
+            #{linkmantitle,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+            #{spell,jdbcType=VARCHAR}, #{pt,jdbcType=VARCHAR}, #{qrimageurl,jdbcType=VARCHAR}, 
+            #{certificate,jdbcType=VARCHAR}, #{certificatecode,jdbcType=VARCHAR}, #{sendtype,jdbcType=VARCHAR}, 
+            #{homeaddress,jdbcType=VARCHAR}, #{family,jdbcType=VARCHAR}, #{emergencylinkman,jdbcType=VARCHAR}, 
+            #{relationcustomer,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER})
+    </insert>
+    <select id="selectAll" resultMap="BaseResultMap" >
+        select Id, Name, ShortName, Linkman, Area1, Area2, TelPrefix, Postalcode, Tel, Fax, 
+        Email, Web, Address, OriginType, Type, Memo, Owner, AssignDate, CreateUser, CreateDate, 
+        ModifyUser, ModifyDate, LastActionDate, Alpha1, Alpha2, ShareMembers, Mobile, Number, 
+        BirthDate, ParentId, GroupId, ParentRelation, CustomField1, CustomField2, CustomField3, 
+        CustomField4, CustomField5, CustomField6, CustomField7, CustomField8, CustomField9, 
+        CustomField10, CustomField11, CustomField12, CustomField13, CustomField14, CustomField15, 
+        CustomField16, CustomField17, CustomField18, CustomField19, CustomField20, Attachment, 
+        Label, LinkmanTitle, WeChat, QQ, Spell, PT, QRImageUrl, Certificate, CertificateCode, 
+        SendType, HomeAddress, Family, EmergencyLinkman, RelationCustomer, Sex
+        from customer_list
+    </select>
+    
+        <!-- 查询合同信息 -->
+    <select id="listCustomer" parameterType="Map" resultMap="BaseResultMap">
+         select a.id,a.name,a.mobile,
+        b.name as customertypename,
+        a.email,a.lastactiondate,
+        c.name as ownername
+        from
+        customer_list a
+        left join customer_type b on b.id = a.type
+        left join team_users c on c.id = a.owner
+        <where>
+            <if test="name!=null and name!='' ">
+                and a.name like #{name}
+            </if>
+            </where>
+          <if test="start!=null and size!=null">
+            limit #{start},#{size}
+         </if>
+    </select>
+    
+        <!-- 总记录条数 -->
+    <select id="iTotalCustomerList" resultType="java.lang.Integer">
+        select count(a.id)
+        from
+        customer_list a
+        left join customer_type b on b.id = a.type
+        left join team_users c on c.id = a.owner
+        <where>
+            <if test="name!=null and name!='' ">
+                and a.name like #{name}
+            </if>
+        </where>
+    </select>
+    
+        <!-- 通过Id查询客户信息 -->
+    <select id="selectCustomerById" parameterType="int" resultMap="BaseResultMap"
+        useCache="false">
+        select * from customer_list where id=#{id}
+        </select>
+    <!-- 连表查询 -->
+    <select id="selectCustomer" parameterType="int" resultType="com.info.entity.vo.CustomerListVo">
+          SELECT customer_list.*,team_users. NAME AS ownerName,customer_origintype.NAME AS originTypeName,customer_type.`Name` as typeName
+          FROM customer_list
+          LEFT JOIN team_users ON customer_list. OWNER = team_users.id
+          LEFT JOIN customer_origintype ON customer_list.OriginType = customer_origintype.id
+          LEFT JOIN customer_type ON customer_list.Type=customer_type.Id
+         WHERE customer_list.id=#{id}
+    </select>
+    <update id="updateCustomerInfo"  parameterMap ="BaseResultMap" >
+         UPDATE customer_list SET customer_list.`Name`=#{name},customer_list.Sex=#{sex},customer_list.Mobile=#{mobile},customer_list.Email=#{email},
+         customer_list.Certificate=#{certificate}
+     ,customer_list.CertificateCode=#{certificatecode},customer_list.BirthDate=#{birthdate},customer_list.HomeAddress=#{homeaddress}
+     ,customer_list.SendType=#{sendtype},customer_list.Address=#{address},customer_list.Postalcode=#{postalcode},
+     customer_list.EmergencyLinkman=#{emergencylinkman},customer_list.Tel=#{tel}
+     ,customer_list.Family=#{family},customer_list.Memo=#{memo},customer_list.type=#{type},customer_list.originType=#{origintype}
+     ,customer_list.Label=#{label} WHERE customer_list.Id=#{id}
+    </update>
+    <!-- 删除客户信息 -->
+    <delete id="deleteCustomerInfo" parameterType="int">
+      delete from customer_list where id=#{id}
+    </delete>
+    <!-- 查询寄送地址下拉框 -->
+    <select id="selectAddress" parameterType="int" resultType="com.info.entity.DictArea">
+    select id,text from dict_area where parentid=#{parentid}
+    </select>
+    <!-- 查询客户来源下拉框 -->
+    <select id="selectOriginType" resultType="Map">
+     select id,name from customer_origintype
+    </select>   
+    <!-- 查询客户类型下拉框 -->        
+    <select id="selectType" resultType="Map">
+      select id,name from customer_type
+    </select>                 
+</mapper>
