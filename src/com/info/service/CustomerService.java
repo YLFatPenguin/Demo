@@ -99,7 +99,7 @@ public class CustomerService
     }
 
     // 查询
-    public Object selectCustomer(int id) throws Exception
+    public CustomerListVo selectCustomer(int id) throws Exception
     {
         return (CustomerListVo) dao.findForObject("CustomerListMapper.selectCustomer", id);
     }

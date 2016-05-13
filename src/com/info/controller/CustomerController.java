@@ -88,13 +88,17 @@ public class CustomerController
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("Integer", id);
         // 把数据存放到map中以后，通过调用dao的方法去查询数据库
-        Object object = customerService.selectCustomer(id);
+        CustomerListVo customerListVo = customerService.selectCustomer(id);
+        customerListVo.getBirthdate();
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
-
+        JSONArray jsonArray = JSONArray.fromObject(customerListVo, jsonConfig);
+        JSONObject result = new JSONObject();
+        result.put("customerListVo", jsonArray);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/customerDetail");
-        mv.addObject(object);
+        mv.addObject("customerListVo", jsonArray);
+
         return mv;
     }
 

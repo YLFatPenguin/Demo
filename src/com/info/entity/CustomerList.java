@@ -6,6 +6,8 @@ package com.info.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CustomerList
 {
 
@@ -26,17 +28,21 @@ public class CustomerList
     private Integer type;
     private String memo;
     private Integer owner;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date assigndate;
     private Integer createuser;
     private Date createdate;
     private Integer modifyuser;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date modifydate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastactiondate;
     private String alpha1;
     private String alpha2;
     private String sharemembers;
     private String mobile;
     private String number;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
     private Integer parentid;
     private Integer groupid;
@@ -771,6 +777,16 @@ public class CustomerList
     public void setCustomertypename(String customertypename)
     {
         this.customertypename = customertypename;
+    }
+
+    public String getOwnername()
+    {
+        return ownername;
+    }
+
+    public void setOwnername(String ownername)
+    {
+        this.ownername = ownername;
     }
 
 }
