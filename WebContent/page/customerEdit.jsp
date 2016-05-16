@@ -44,8 +44,8 @@
                   });
 		   });
 
+	
 	function updateCustomerInfo() {
-		alert("11111");
 		$("#fm").form("submit", {
 			url : "${pageContext.request.contextPath}/Customer/updateCustomerInfo.do?",
 			onSubmit : function() {
@@ -118,8 +118,8 @@
                 </tr>
                 <tr>
                     <td><font face="wingdings" color="red">v</font>客户生日：</td>
-                    <td colspan="5"><input class="easyui-datebox" type="text" id="birthdate"
-                        name="birthdate"  value="${customerListVo.birthdate}" /></td>
+                    <td colspan="5"><input class="easyui-datebox" type="text" id="stringDate"
+                        name="stringDate"  value="${customerListVo.stringDate}" /></td>
                 </tr>
                 <tr>
                     <td><font face="wingdings" color="red">v</font>家庭住址：</td>
@@ -139,8 +139,8 @@
                                   onSelect: function(rec){
                                   var url = 'selectAddress.do?id='+rec.id;
                                   $('#cc2').combobox('clear');
-                                  $('#cc2').combobox('reload', url);}" >
-                      <input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'">
+                                  $('#cc2').combobox('reload', url);}" value="${customerListVo.address }">
+                      <input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="${customerListVo.address }">
                     </td>
                 </tr>
                 <tr>

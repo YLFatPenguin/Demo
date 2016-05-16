@@ -35,11 +35,18 @@ import com.info.util.StringUtil;
 @RequestMapping(value = "/Customer")
 public class CustomerController
 {
-    // controller依赖service层
+
+    /**
+     * controller依赖service层
+     */
     @Resource(name = "customerService")
     private CustomerService customerService;
 
-    // springMVC处理前台form中的date类型的参数
+    /**
+     * springMVC处理前台form中的date类型的参数
+     * 
+     * @param binder
+     */
     @InitBinder
     public void initBinder(WebDataBinder binder)
     {
@@ -56,7 +63,15 @@ public class CustomerController
         return mv;
     }
 
-    // 客户列表 跳转成功，且已经实现分页查询
+    /**
+     * 客户列表 跳转成功，且已经实现分页查询
+     * 
+     * @param page
+     * @param rows
+     * @param customer
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping(value = "/listCustomer")
     public void listCustomer(@RequestParam(value = "page", required = false) String page,
             @RequestParam(value = "rows", required = false) String rows, CustomerList customer,
@@ -79,7 +94,14 @@ public class CustomerController
         ResponseUtil.write(response, result);
     }
 
-    // 客户的详情页面 ---客户的详情，已经实现带数据传输到前台的功能,通过id去查询数据
+    /**
+     * 客户的详情页面 ---客户的详情，已经实现带数据传输到前台的功能,通过id去查询数据
+     * 
+     * @param id
+     * @param response
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/goCustomerInfo")
     public ModelAndView goCustomerInfo(@RequestParam(value = "id", required = false) int id,
             HttpServletResponse response) throws Exception
@@ -89,31 +111,44 @@ public class CustomerController
         map.put("Integer", id);
         // 把数据存放到map中以后，通过调用dao的方法去查询数据库
         CustomerListVo customerListVo = customerService.selectCustomer(id);
-        customerListVo.getBirthdate();
-        JsonConfig jsonConfig = new JsonConfig();
-        jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd"));
-        JSONArray jsonArray = JSONArray.fromObject(customerListVo, jsonConfig);
-        JSONObject result = new JSONObject();
-        result.put("customerListVo", jsonArray);
+        Date date = customerListVo.getBirthdate();
+        SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
+        String stringDate = dateFormater.format(date);
+        customerListVo.setStringDate(stringDate);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/customerDetail");
-        mv.addObject("customerListVo", jsonArray);
-
+        mv.addObject(customerListVo);
         return mv;
     }
 
-    // 客户编辑页面 ---实现带数据的编辑,只是跳转到编辑页面,已经完成！
+    /**
+     * 客户编辑页面 ---实现带数据的编辑,只是跳转到编辑页面,已经完成！
+     * 
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/goCustomerEdit")
     public ModelAndView goCustomerEdit(@RequestParam(value = "id") int id) throws Exception
     {
         Object object = customerService.selectCustomer(id);
+        Date date = ((CustomerListVo) object).getBirthdate();
+        SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
+        String stringDate = dateFormater.format(date);
+        ((CustomerListVo) object).setStringDate(stringDate);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/customerEdit");
         mv.addObject(object);
         return mv;
     }
 
-    // 查询寄送地址下拉框
+    /**
+     * 查询寄送地址下拉框
+     * 
+     * @param id
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping(value = "/selectAddress")
     public void selectAddress(int id, HttpServletResponse response) throws Exception
     {
@@ -122,7 +157,12 @@ public class CustomerController
         ResponseUtil.write(response, jsonArray);
     }
 
-    // 查询客户来源下拉框
+    /**
+     * 查询客户来源下拉框
+     * 
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping(value = "/selectOriginType")
     public void selectOriginType(HttpServletResponse response) throws Exception
     {
@@ -131,7 +171,12 @@ public class CustomerController
         ResponseUtil.write(response, jsonArray);
     }
 
-    // 查询客户类型下拉框
+    /**
+     * 查询客户类型下拉框
+     * 
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping(value = "/selectType")
     public void selectType(HttpServletResponse response) throws Exception
     {
@@ -140,7 +185,13 @@ public class CustomerController
         ResponseUtil.write(response, jsonArray);
     }
 
-    // 更新客户页面 --- 实现成功 ，还有待改进
+    /**
+     * 更新客户页面 --- 实现成功 ，还有待改进
+     * 
+     * @param customerListVo
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/updateCustomerInfo")
     public ModelAndView updateCustomerInfo(CustomerListVo customerListVo) throws Exception
     {
@@ -158,18 +209,31 @@ public class CustomerController
         return mv;
     }
 
-    // 新增客户页面 ---- 只是进到新增页面 分为两步去实现，一步是进入到新增页面，然后是开始输入新增信息，进行插入操作
+    /**
+     * 新增客户页面 ---- 只是进到新增页面 分为两步去实现，一步是进入到新增页面，然后是开始输入新增信息，进行插入操作
+     * 
+     * @param customerList
+     * 
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/goAddCustomer")
-    public ModelAndView goAddCustomer() throws Exception
+    public ModelAndView goAddCustomer(CustomerList customerList) throws Exception
     {
         // 直接插入数据，调用mapper的insert方法
-        // customerService.insertCustomerInfo(customerList);
+        customerService.insertCustomerInfo(customerList);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/addCustomer");
         return mv;
     }
 
-    // 开始输入新客户数据，进行插入操作。完成
+    /**
+     * 开始输入新客户数据，进行插入操作。完成
+     * 
+     * @param customerList
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/insertNewCustomerInfo")
     public ModelAndView insertNewCustomerInfo(CustomerList customerList) throws Exception
     {
@@ -181,7 +245,11 @@ public class CustomerController
         return mv;
     }
 
-    // 新增联系人 -- 进入到addLinkMan的页面
+    /**
+     * 新增联系人 -- 进入到addLinkMan的页面
+     * 
+     * @return
+     */
     @RequestMapping(value = "/goAddCustomerLinkMan")
     public ModelAndView addCustomerLinkMan()
     {
@@ -191,7 +259,13 @@ public class CustomerController
         return mv;
     }
 
-    // 新增联系人---开始插入新增联系人数据，进行插入操作
+    /**
+     * 新增联系人---开始插入新增联系人数据，进行插入操作
+     * 
+     * @param customerLinkman
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/insertLinkMan")
     public ModelAndView insertLinkMan(CustomerLinkman customerLinkman) throws Exception
     {
@@ -201,7 +275,11 @@ public class CustomerController
         return mv;
     }
 
-    // 新增行动记录 ---页面正在画，还不确定数据库，有些东西还没写
+    /**
+     * 新增行动记录 ---页面正在画，还不确定数据库，有些东西还没写
+     * 
+     * @return
+     */
     @RequestMapping(value = "/goAddCustomerAction")
     public ModelAndView addCustomerAction()
     {
@@ -210,11 +288,18 @@ public class CustomerController
         return mv;
     }
 
-    // 删除数据
+    /**
+     * 删除数据
+     * 
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/delete")
     public ModelAndView deleteCustomerInfo(int id) throws Exception
     {
         customerService.deleteCustomerInfo(id);
+
         return null;
     }
 

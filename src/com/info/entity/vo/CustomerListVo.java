@@ -7,6 +7,17 @@ public class CustomerListVo extends CustomerList
     private String ownerName;
     private String originTypeName;
     private String typeName;
+    private String StringDate;
+
+    public String getStringDate()
+    {
+        return StringDate;
+    }
+
+    public void setStringDate(String stringDate)
+    {
+        StringDate = stringDate;
+    }
 
     public String getTypeName()
     {

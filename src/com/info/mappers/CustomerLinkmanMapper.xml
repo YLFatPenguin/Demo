@@ -47,7 +47,7 @@
     </resultMap>
 
     <insert id="insert" parameterType="com.info.entity.CustomerLinkman" >
-        insert into customer_linkman (Id, CustomerId, Type, 
+        insert into customer_linkman (Id, CustomerId as customerName, Type, 
             Name, ShortName, Title, 
             Tel, Mobile, Address, 
             Email, Web, Birthdate, 

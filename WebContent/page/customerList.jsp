@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,12 +21,16 @@
 	    });
 	}
 	//删除单条客户信息
-	function deleteCustomer(index){  
+	function deleteCustomer(index){		
         $('#dg').datagrid('selectRow',index);  
         var row = $('#dg').datagrid('getSelected');  
-        if (row){     
+        if (row){  
+        	console.log("***aaaaaaaa1**");
             $.post(url = "${pageContext.request.contextPath}/Customer/delete.do?id="+row.id,function(result){
+            	alert("0.0.");
                 if(result.success){
+                	console.log("***aaaaaa****");
+                	alert("0.0.");
                     $.messager.alert("系统提示","数据已成功删除！");
                     $("#dg").datagrid("reload");
                 }else{

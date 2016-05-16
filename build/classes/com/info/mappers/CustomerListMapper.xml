@@ -184,13 +184,13 @@
     </select>
     
     <update id="updateCustomerInfo"  parameterType ="com.info.entity.vo.CustomerListVo" >
-     UPDATE customer_list SET customer_list.`Name`=#{name},customer_list.Sex=#{sex},customer_list.Mobile=#{mobile},customer_list.Email=#{email},
-         customer_list.Certificate=#{certificate}
-     ,customer_list.CertificateCode=#{certificatecode},customer_list.BirthDate=#{birthdate},customer_list.HomeAddress=#{homeaddress}
-     ,customer_list.SendType=#{sendtype},customer_list.Address=#{address},customer_list.Postalcode=#{postalcode},
-     customer_list.EmergencyLinkman=#{emergencylinkman},customer_list.Tel=#{tel}
-     ,customer_list.Family=#{family},customer_list.Memo=#{memo},customer_list.type=#{type},customer_list.originType=#{origintype}
-     ,customer_list.Label=#{label} WHERE customer_list.Id=#{id}
+     update customer_list set customer_list.name=#{name},customer_list.sex=#{sex},customer_list.mobile=#{mobile},customer_list.email=#{email},
+         customer_list.certificate=#{certificate}
+     ,customer_list.certificatecode=#{certificatecode},customer_list.birthdate=#{birthdate},customer_list.homeaddress=#{homeaddress}
+     ,customer_list.sendtype=#{sendtype},customer_list.address=#{address},customer_list.postalcode=#{postalcode},
+     customer_list.emergencylinkman=#{emergencylinkman},customer_list.tel=#{tel}
+     ,customer_list.family=#{family},customer_list.memo=#{memo},customer_list.type=#{type},customer_list.origintype=#{origintype}
+     ,customer_list.label=#{label} where customer_list.id=#{id}
     </update>
 
     <!-- 删除客户信息 -->

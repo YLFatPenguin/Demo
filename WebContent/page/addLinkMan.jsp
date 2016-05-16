@@ -22,7 +22,7 @@
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
 
-function addLinkMan(){
+function addLinkman() {
 	$("#fm").form("submit", {
 		url : "${pageContext.request.contextPath}/Customer/insertLinkMan.do",
 		
@@ -69,67 +69,86 @@ function closeDialog() {
 	window.close();
 	//window.opener && window.opener.location.reload();
 }
+
 </script>
 </head>
-<body>
+<body style="margin: 15px;">
 	<div id="p" class="easyui-panel" title="添加新的联系人"
-		style="width: 700px; height: 460px;">
-		<form id="fm" action="post">
-		<table>
+		style="width: 600px; height: 460px; padding: 10px;">
+		<form id="fm" method="post">
+		<table cellspacing="8px">
 			<tr>
-				<td>名称：
-				 <input type="text" id="name" name="name"  value="${customerlinkman.name}"/>
-				</td>
-				<td>生日：
-				<input type="text" id="id"
-					name="id"  value="${customerLinkman.birthdate}" />
-				</td>
-			</tr>	
-					
-			<tr>
-			  <td>
-			               所属客户:<input type="text"/>
-			  </td>
+				<td>名称：</td>
+				<td><input type="hidden" id="id" name="id" /><input type="text" id="name" name="name" value="${customerLinkman.name }"/></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>				
 			</tr>
 			<tr>
-			  <td>客户手机：</td>
-			  <td><input type="text" id="mobile" name="mobile"  value="${customerLinkman.mobile}"/></td>
-				<td>客户邮箱：</td>
-				<td><input type="text" id="email" name="email"  value="${customerLinkman.email }"/></td>
+			<td>性别：</td>
+				<td><input type="radio" id="sex" name="sex" value="${customerLinkman.sex }" />男
+				<input type="radio" id="sex" name="sex" value="${customerLinkman.sex }"   />女</td>				
+			</tr>
+			<tr>
+			    <td>所属客户：</td>
+			    <td><input type="text" id="customerName" name="customerName" value="${customerLinkman.customerName }"/></td>
+			</tr>
+			<tr>
+			    <td>部门：</td>
+			    <td><input type="text" id="groupname" name="groupname" value="${customerLinkman.groupname }" /></td>
+			</tr>
+			<tr>
+			    <td>职位称呼：</td>
+			    <td><input type="text" id="title" name="title" value="${customerLinkman.title }"/></td>
+			</tr>
+			<tr>
+			    <td>类型：</td>
+			    <td><input class="easyui-combobox" type="text"
+						 id="type" name="type" editable="false"
+						 panelHeight="auto"
+						 data-options="
+                         url:'${pageContext.request.contextPath}/Customer/selectLinkmanType.do',
+                         method:'get',valueField:'id',textField:'name',panelHeight:'auto'" value="${customerListVo.type}"/>  </td>
+			</tr>
+			<tr>
+			    <td>手机：</td>
+				<td><input type="text" id="mobile" name="mobile" value="${customerLinkman.mobile }"  /></td>
+			</tr>
+			<tr>
+			    <td>邮箱：</td>
+				<td><input type="text" id="email" name="email" value="${customerLinkman.email }" /></td>			
+			</tr>
+			<tr>
+			    <td>QQ：</td>
+			    <td><input type="text" id="qq" name="qq" value="${customerLinkman.qq }"/></td>
+			</tr>
+			<tr>
+			    <td>网站:</td>
+			    <td><input type="text" id="web" name="web" value="${customerLinkman.web }"/></td>
+			</tr>
+			<tr>
+			<td>生日：</td>
+				<td><input class="easyui-datebox" type="text" id="birthdate" name="birthdate" value="${customerLinkman.birthdate }"/></td>
 				
 			</tr>
 			<tr>
-				<td>性别：</td>
-				<td><input type="text" id="sex" name="sex"  value="${customerLinkman.sex }"/></td>
-				
-				<td>客户生日：</td>
-				<td><input type="text" id="birthdate" name="birthdate" value="${customerLinkman.birthdate }" /></td>
-				
-			</tr>
-             <tr>
-				<td>创建时间：</td>
-				<td><input type="text" id="createdate" name="createdate" value="${customerLinkman.createdate }" /></td>
-				
-				<td>创建人：</td>
-				<td><input type="text" id="attachment"
-					name="attachment"  /></td>
+			<td>地址：</td>
+				<td><input type="text" id="address" name="address" value="${customerLinkman.address }" /></td>		
 			</tr>
 			<tr>
-				<td>相关附件：</td>
-				<td ><input type="text" id="overView"
-					name="overView"   /></td>
+			    <td>联系人标签：</td>
+			    <td>这个地方还没好  现在不会做</td>
 			</tr>
 			<tr>
 				<td>详细描述：</td>
-				<td ><input type="text" id="overView"
-					name="overView"  /></td>
+				<td><input type="text" id="overView"
+					name="overView"   /></td>
 			</tr>
-			
 		</table>
 		</form>
 	</div>
-    <div id="dlg-buttons">
-		<a href="javascript:addLinkMan()" class="easyui-linkbutton"
+	
+	<br/>
+	<div id="dlg-buttons">
+		<a href="javascript:addLinkman()" class="easyui-linkbutton"
 			iconCls="icon-ok">保存</a> <a href="javascript:closeDialog()"
 			class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
 	</div>

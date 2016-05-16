@@ -61,7 +61,7 @@ function closeDialog() {
 			<tr>
 				<td>客户生日：</td>
 				<td>
-				<input type="text" id="birthdate" name="birthdate"readonly="readonly" value="${customerListVo.birthdate }" /></td>
+				<input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }" /></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>家庭住址：</td>
 				<td><input type="text" id="homeaddress" name="homeaddress" readonly="readonly" value="${customerListVo.homeaddress }" /></td>
@@ -121,32 +121,32 @@ function closeDialog() {
 					name="ownerName"  readonly="readonly" value="${customerListVo.ownerName }"/></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>创建时间：</td>
-				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="${customerListVo.createdate }"/></td>
+				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
 			</tr>
 			<tr>
 				<td>业务员：</td>
 				<td><input type="text" id="ownerName" name="ownerName" readonly="readonly" value="${customerListVo.ownerName }"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>分配日期：</td>
-				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="${customerListVo.createdate }"/></td>
+				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
 			</tr>
 			<tr>
 				<td>首次接触时间：</td>
-				<td><input type="text" id="createuser" name="createuser" readonly="readonly" value="${customerListVo.createuser }"/></td>
+				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>最后接触时间：</td>
-				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="${customerListVo.createdate }"/></td>
+				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
 			</tr>
 			<tr>
 				<td>最后修改人：</td>
 				<td><input type="text" id="ownerName" name="ownerName" readonly="readonly" value="${customerListVo.ownerName }"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>最后修改时间：</td>
-				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="${customerListVo.createdate }"/></td>
+				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
 			</tr>
 			<tr>
 				<td>预计回落时间：</td>
-				<td><input type="text" id="createuser" name="createuser" readonly="readonly" value="${salesOrderList.createuser }"/></td>
+				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${salesOrderList.stringDate }"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>共享给：</td>
 				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="${salesOrderList.createdate }"/></td>
