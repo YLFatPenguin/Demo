@@ -86,6 +86,61 @@ public class CustomerList
     private String customertypename;
     // 业务员中文
     private String ownername;
+    private Date firsttime;
+    private Date lasttime;
+    private Date dropdate;
+    private String actiondays;
+    private String actioncost;
+
+    public Date getDropdate()
+    {
+        return dropdate;
+    }
+
+    public void setDropdate(Date dropdate)
+    {
+        this.dropdate = dropdate;
+    }
+
+    public String getActiondays()
+    {
+        return actiondays;
+    }
+
+    public void setActiondays(String actiondays)
+    {
+        this.actiondays = actiondays;
+    }
+
+    public String getActioncost()
+    {
+        return actioncost;
+    }
+
+    public void setActioncost(String actioncost)
+    {
+        this.actioncost = actioncost;
+    }
+
+    public Date getFirsttime()
+    {
+        return firsttime;
+    }
+
+    public void setFirsttime(Date firsttime)
+    {
+        this.firsttime = firsttime;
+    }
+
+    public Date getLasttime()
+    {
+        return lasttime;
+    }
+
+    public void setLasttime(Date lasttime)
+    {
+        this.lasttime = lasttime;
+    }
 
     public Integer getId()
     {

@@ -168,19 +168,21 @@
         </where>
     </select>
     
-        <!-- 通过Id查询客户信息 -->
+   <!--      
     <select id="selectCustomerById" parameterType="int" resultMap="BaseResultMap"
         useCache="false">
         select * from customer_list where id=#{id}
-        </select>
+        </select> 
+   --> 
+        
     <!-- 连表查询 -->
     <select id="selectCustomer" parameterType="int" resultType="com.info.entity.vo.CustomerListVo">
-          SELECT customer_list.*,team_users. NAME AS ownerName,customer_origintype.NAME AS originTypeName,customer_type.`Name` as typeName
-          FROM customer_list
-          LEFT JOIN team_users ON customer_list. OWNER = team_users.id
-          LEFT JOIN customer_origintype ON customer_list.OriginType = customer_origintype.id
-          LEFT JOIN customer_type ON customer_list.Type=customer_type.Id
-         WHERE customer_list.id=#{id}
+          select customer_list.*,team_users. name as ownerName,customer_origintype.name as originTypeName,customer_type.`name` as typeName
+          from customer_list
+          left join team_users on customer_list. owner = team_users.id
+          left join customer_origintype on customer_list.origintype = customer_origintype.id
+          left join customer_type on customer_list.type=customer_type.Id
+         where customer_list.id=#{id}
     </select>
     
     <update id="updateCustomerInfo"  parameterType ="com.info.entity.vo.CustomerListVo" >
@@ -190,7 +192,7 @@
      ,customer_list.sendtype=#{sendtype},customer_list.address=#{address},customer_list.postalcode=#{postalcode},
      customer_list.emergencylinkman=#{emergencylinkman},customer_list.tel=#{tel}
      ,customer_list.family=#{family},customer_list.memo=#{memo},customer_list.type=#{type},customer_list.origintype=#{origintype}
-     ,customer_list.label=#{label} where customer_list.id=#{id}
+     ,customer_list.label=#{label},customer_list.area1=#{area1},customer_list.area2=#{area2} where customer_list.id=#{id}
     </update>
 
     <!-- 删除客户信息 -->

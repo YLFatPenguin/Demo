@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,7 +61,7 @@ function closeDialog() {
 			<tr>
 				<td>客户生日：</td>
 				<td>
-				<input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }" /></td>
+				<input type="text" id="birthdate" name="birthdate" readonly="readonly" value="<fmt:formatDate value='${customerListVo.birthdate}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>家庭住址：</td>
 				<td><input type="text" id="homeaddress" name="homeaddress" readonly="readonly" value="${customerListVo.homeaddress }" /></td>
@@ -121,42 +121,42 @@ function closeDialog() {
 					name="ownerName"  readonly="readonly" value="${customerListVo.ownerName }"/></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>创建时间：</td>
-				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
+				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="<fmt:formatDate value='${customerListVo.createdate}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 			</tr>
 			<tr>
 				<td>业务员：</td>
 				<td><input type="text" id="ownerName" name="ownerName" readonly="readonly" value="${customerListVo.ownerName }"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>分配日期：</td>
-				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
+				<td><input type="text" id="assigndate" name="assigndate" readonly="readonly" value="<fmt:formatDate value='${customerListVo.assigndate}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 			</tr>
 			<tr>
 				<td>首次接触时间：</td>
-				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
+				<td><input type="text" id="firsttime" name="firsttime" readonly="readonly" value="<fmt:formatDate value='${customerListVo.firsttime}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>最后接触时间：</td>
-				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
+				<td><input type="text" id="lasttime" name="lasttime" readonly="readonly" value="<fmt:formatDate value='${customerListVo.lasttime}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 			</tr>
 			<tr>
 				<td>最后修改人：</td>
 				<td><input type="text" id="ownerName" name="ownerName" readonly="readonly" value="${customerListVo.ownerName }"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>最后修改时间：</td>
-				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${customerListVo.stringDate }"/></td>
+				<td><input type="text" id="modifydate" name="modifydate" readonly="readonly" value="<fmt:formatDate value='${customerListVo.modifydate}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 			</tr>
 			<tr>
 				<td>预计回落时间：</td>
-				<td><input type="text" id="stringDate" name="stringDate" readonly="readonly" value="${salesOrderList.stringDate }"/></td>
+				<td><input type="text" id="dropdate" name="dropdate" readonly="readonly" value="<fmt:formatDate value='${customerListVo.dropdate}' type='date' pattern="yyyy-MM-dd"/>"/></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>共享给：</td>
-				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="${salesOrderList.createdate }"/></td>
+				<td><input type="text" id="sharemembers" name="sharemembers" readonly="readonly" value="${customerListVo.sharemembers }"/></td>
 			</tr>
 			<tr>
 				<td>行动周期：</td>
-				<td><input type="text" id="createuser" name="createuser" readonly="readonly" /></td>
+				<td><input type="text" id="actiondays" name="actiondates" readonly="readonly" value="${customerListVo.actiondays }" /></td>
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				<td>行动成本：</td>
-				<td><input type="text" id="createdate" name="createdate" readonly="readonly" value="0"/></td>
+				<td><input type="text" id="actioncost" name="actioncost" readonly="readonly" value="${customerListVo.actioncost }"/></td>
 			</tr>
 		</table>
 	</div>

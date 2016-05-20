@@ -24,35 +24,12 @@
 
 function addCustomerInfo() {
 	$("#fm").form("submit", {
-		url : "${pageContext.request.contextPath}/Customer/insertNewCustomerInfo.do",
-		
+		url : "${pageContext.request.contextPath}/Customer/insertNewCustomerInfo.do",		
 		onSubmit : function() {
-			/*if($("#area").combobox("getValue")==""){
-			    $.messager.alert("系统提示","请选择客户地区");
-			    return false;
-			}
-			if($("#cusManager").combobox("getValue")==""){
-			    $.messager.alert("系统提示","请选择客户经理");
-			    return false;
-			}
-			if($("#level").combobox("getValue")==""){
-			    $.messager.alert("系统提示","请选择客户的等级");
-			    return false;
-			}
-			if($("#myd").combobox("getValue")==""){
-			    $.messager.alert("系统提示","请选择客户满意度");
-			    return false;
-			}
-			if($("#xyd").combobox("getValue")==""){
-			    $.messager.alert("系统提示","请选择客户信用度");
-			    return false;
-			}*/
 			return $(this).form("validate");
 		},
 		success : function(result) {
-
 			var result = eval('(' + result + ')');
-			alert(result);
 			if (result.success) {
 				$.messager.alert("系统提示", "保存成功");
 				window.close();

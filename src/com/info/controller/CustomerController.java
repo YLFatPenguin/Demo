@@ -31,6 +31,10 @@ import com.info.util.DateJsonValueProcessor;
 import com.info.util.ResponseUtil;
 import com.info.util.StringUtil;
 
+/**
+ * @author Administrator
+ *
+ */
 @Controller
 @RequestMapping(value = "/Customer")
 public class CustomerController
@@ -111,10 +115,6 @@ public class CustomerController
         map.put("Integer", id);
         // 把数据存放到map中以后，通过调用dao的方法去查询数据库
         CustomerListVo customerListVo = customerService.selectCustomer(id);
-        Date date = customerListVo.getBirthdate();
-        SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
-        String stringDate = dateFormater.format(date);
-        customerListVo.setStringDate(stringDate);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/customerDetail");
         mv.addObject(customerListVo);
@@ -122,7 +122,7 @@ public class CustomerController
     }
 
     /**
-     * 客户编辑页面 ---实现带数据的编辑,只是跳转到编辑页面,已经完成！
+     * 客户编辑页面 ---实现带数据的编辑,这个只是先跳转到编辑页面,已经完成！
      * 
      * @param id
      * @return
@@ -132,14 +132,43 @@ public class CustomerController
     public ModelAndView goCustomerEdit(@RequestParam(value = "id") int id) throws Exception
     {
         Object object = customerService.selectCustomer(id);
-        Date date = ((CustomerListVo) object).getBirthdate();
-        SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
-        String stringDate = dateFormater.format(date);
-        ((CustomerListVo) object).setStringDate(stringDate);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("page/customerEdit");
         mv.addObject(object);
         return mv;
+    }
+
+    /**
+     * 更新客户页面 --- 实现成功 ，还有待改进
+     * 
+     * @param customerListVo
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/updateCustomerInfo")
+    public void updateCustomerInfo(CustomerListVo customerListVo, HttpServletResponse response) throws Exception
+    {
+        // 先直接更新数据，调用mapper里面的update的方法去更新
+        int total = customerService.updateCustomerInfo(customerListVo);
+        // // 然后查询数据
+        // Object object =
+        // customerService.selectCustomer(customerListVo.getId());
+        // // 然后把数据返回到页面
+        // ModelAndView mv = new ModelAndView();
+        // // 这是返回到哪个页面
+        // mv.setViewName("page/customerEdit");
+        // // 这个是前端改的值
+        // mv.addObject(object);
+        JSONObject data = new JSONObject();
+        if (total == 1)
+        {
+            data.put("success", true);
+        }
+        else
+        {
+            data.put("success", false);
+        }
+        ResponseUtil.write(response, data);
     }
 
     /**
@@ -186,31 +215,7 @@ public class CustomerController
     }
 
     /**
-     * 更新客户页面 --- 实现成功 ，还有待改进
-     * 
-     * @param customerListVo
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value = "/updateCustomerInfo")
-    public ModelAndView updateCustomerInfo(CustomerListVo customerListVo) throws Exception
-    {
-        // 先直接更新数据，调用mapper里面的update的方法去更新
-        customerService.updateCustomerInfo(customerListVo);
-        // 然后查询数据
-        Object object = customerService.selectCustomer(customerListVo.getId());
-        // 然后把数据返回到页面
-        ModelAndView mv = new ModelAndView();
-        // 这是返回到哪个页面
-        mv.setViewName("page/customerEdit");
-        // 这个是前端改的值
-        mv.addObject(object);
-        // 返回页面信息
-        return mv;
-    }
-
-    /**
-     * 新增客户页面 ---- 只是进到新增页面 分为两步去实现，一步是进入到新增页面，然后是开始输入新增信息，进行插入操作
+     * 新增客户页面 ---- 只是进到新增页面 分为两步去实现，一步是进入到新增页面，然后是开始输入新增信息，进行插入操作 这是进入到添加客户页面
      * 
      * @param customerList
      * 
@@ -228,25 +233,31 @@ public class CustomerController
     }
 
     /**
-     * 开始输入新客户数据，进行插入操作。完成
+     * 开始输入新客户数据，进行插入操作。完成，实现了前台提示保存是否成功的功能
      * 
      * @param customerList
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/insertNewCustomerInfo")
-    public ModelAndView insertNewCustomerInfo(CustomerList customerList) throws Exception
+    public void insertNewCustomerInfo(CustomerList customerList, HttpServletResponse response) throws Exception
     {
         // 进行数据插入操作
-        customerService.insertCustomerInfo(customerList);
-        ModelAndView mv = new ModelAndView();
-
-        mv.addObject(customerList);
-        return mv;
+        int total = customerService.insertCustomerInfo(customerList);
+        JSONObject result = new JSONObject();
+        if (total == 1)
+        {
+            result.put("success", true);
+        }
+        else
+        {
+            result.put("success", false);
+        }
+        ResponseUtil.write(response, result);
     }
 
     /**
-     * 新增联系人 -- 进入到addLinkMan的页面
+     * 新增联系人 -- 这是进入到addLinkMan的页面
      * 
      * @return
      */
@@ -296,11 +307,19 @@ public class CustomerController
      * @throws Exception
      */
     @RequestMapping(value = "/delete")
-    public ModelAndView deleteCustomerInfo(int id) throws Exception
+    public void deleteCustomerInfo(int id, HttpServletResponse response) throws Exception
     {
-        customerService.deleteCustomerInfo(id);
-
-        return null;
+        int total = customerService.deleteCustomerInfo(id);
+        JSONObject result = new JSONObject();
+        if (total > 0)
+        {
+            result.put("success", true);
+        }
+        else
+        {
+            result.put("success", false);
+        }
+        ResponseUtil.write(response, result);
     }
 
 }

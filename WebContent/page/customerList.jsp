@@ -20,25 +20,54 @@
 	        "name":$("#s_name").val()
 	    });
 	}
+	
 	//删除单条客户信息
 	function deleteCustomer(index){		
-        $('#dg').datagrid('selectRow',index);  
-        var row = $('#dg').datagrid('getSelected');  
-        if (row){  
-        	console.log("***aaaaaaaa1**");
-            $.post(url = "${pageContext.request.contextPath}/Customer/delete.do?id="+row.id,function(result){
-            	alert("0.0.");
+     var selectRow=$('#dg').datagrid('getSelections');  
+        $.messager.confirm("系统提示","确定要删除此条记录吗？",function(row){
+        var row = $('#dg').datagrid('getSelected');
+        if (row){          	
+            $.post("${pageContext.request.contextPath}/Customer/delete.do?id="+row.id,function(result){
                 if(result.success){
-                	console.log("***aaaaaa****");
-                	alert("0.0.");
                     $.messager.alert("系统提示","数据已成功删除！");
-                    $("#dg").datagrid("reload");
+                    $('#dg').datagrid("reload");
                 }else{
                     $.messager.alert("系统提示","数据删除失败！");
                 }
             },"json");
         }  
-    }
+    });
+  }
+
+	
+	//删除单条记录
+/*	function deleteCustomer(index){
+		var selectedRows=$('#dg').datagrid('getSelections');
+		if(selectedRows.length==0){
+			$.message.alert("系统提示","请选择要删除的数据！");
+			return;
+		}
+		 var strIds=[];
+	        for(var i=0;i<selectedRows.length;i++){
+	            strIds.push(selectedRows[i].id);
+	        }
+	        var ids=strIds.join(",");
+	        $.messager.confirm("系统提示","删除合同将会连合同付息表、审批表一并删除，该操作不可逆，您确认要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){	            
+	        	if(r){	        		
+	                $.post("${pageContext.request.contextPath}/Customer/delete.do?id="+row.id,{ids:ids},function(result){
+	                    if(result.success){
+	                        $.messager.alert("系统提示","数据已成功删除！");
+	                        $('#dg').datagrid("reload");
+	                    }else{
+	                        $.messager.alert("系统提示","数据删除失败！");
+	                    }
+	                },"json");
+	            }
+	        });        
+	}
+	*/
+	
+	
 
 	
     	//删除多条客户
@@ -136,7 +165,7 @@
         if (row){  
             url = "${pageContext.request.contextPath}/Customer/goCustomerEdit.do?id="+row.id;  
             alert(url);
-            window.open(url,"_blank","height=600px","width=600px","location=no")
+            window.open(url,'_blank','width=600,height=600,menubar=no,toolbar=no, location=no,directories=no,status=no,scrollbars=yes,resizable=yes')
         }  
     }
     
@@ -152,7 +181,7 @@
     <table id="dg" title="客户信息管理" class="easyui-datagrid"
       pagination="true" rownumbers="true"  fit="true"
       url="${pageContext.request.contextPath}/Customer/listCustomer.do"  toolbar="#tb">
-         <thead data-options="frozen:true "  >
+         <thead data-options="frozen:true"  >
                 <tr>
                     <th field="cb" checkbox="true" align="center"></th>
                     <th field="id" width="50" align="center" hidden="true">编号</th>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -46,17 +46,14 @@
 
 	
 	function updateCustomerInfo() {
-		$("#fm").form("submit", {
+		$('#fm').form('submit', {
 			url : "${pageContext.request.contextPath}/Customer/updateCustomerInfo.do?",
 			onSubmit : function() {
-
-				return $(this).form("validate");
+				return $(this).form('validate');
 			},
-			success : function(result) {
-
-				var result = eval('(' + result + ')');
-				alert(result);
-				if (result.success) {
+			success : function(data) {
+				var data = eval('(' + data + ')');			
+				if (data.success) {
 					$.messager.alert("系统提示", "保存成功");
 					window.close();
 					window.opener && window.opener.location.reload();
@@ -68,19 +65,15 @@
 		});
 	}
 
-    
-  
-    
 	function closeDialog() {
 		window.close();
-		//window.opener && window.opener.location.reload();
 	}
 	
 </script>
 </head>
 <body style="margin: 15px;">
 	<div id="p" class="easyui-panel" title="客户信息编辑"
-		style="width: 900px; height: 860px; padding: 10px;">
+		style="width: 800px; height: 660px; padding: 10px;">
 		<form id="fm" method="post">
 			<table cellspacing="8px">
 				<tr>
@@ -118,13 +111,13 @@
                 </tr>
                 <tr>
                     <td><font face="wingdings" color="red">v</font>客户生日：</td>
-                    <td colspan="5"><input class="easyui-datebox" type="text" id="stringDate"
-                        name="stringDate"  value="${customerListVo.stringDate}" /></td>
+                    <td colspan="5"><input class="easyui-datebox" type="text" id="birthdate"
+                        name="birthdate"  value="<fmt:formatDate value='${customerListVo.birthdate}' type='date' pattern="yyyy-MM-dd"/>"/></td>
                 </tr>
                 <tr>
                     <td><font face="wingdings" color="red">v</font>家庭住址：</td>
-                    <td colspan="5"><input type="text" id="address"
-                        name="address"  value="${customerListVo.address}" /></td>
+                    <td colspan="5"><input type="text" id="homeaddress"
+                        name="homeaddress"  value="${customerListVo.homeaddress}" /></td>
                 </tr>
                 <tr>
                     <td><font face="wingdings" color="red">v</font>账号寄送方式：</td>
@@ -139,8 +132,8 @@
                                   onSelect: function(rec){
                                   var url = 'selectAddress.do?id='+rec.id;
                                   $('#cc2').combobox('clear');
-                                  $('#cc2').combobox('reload', url);}" value="${customerListVo.address }">
-                      <input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="${customerListVo.address }">
+                                  $('#cc2').combobox('reload', url);}" value="${customerListVo.area1 }">
+                      <input id="cc2" class="easyui-combobox" data-options="valueField:'id',textField:'text'" value="${customerListVo.area2 }">
                     </td>
                 </tr>
                 <tr>
